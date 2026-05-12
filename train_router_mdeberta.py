@@ -215,7 +215,7 @@ def evaluation(router_model, dataset_paths, dataset_types, tokenizer, batch_size
 
 
 if __name__ == '__main__': 
-    device = "cuda"
+    device = "cuda" if torch.cuda.is_available() else "cpu"
     parser = argparse.ArgumentParser(description="the training code for router")
 
     # dataset and path
@@ -332,7 +332,7 @@ if __name__ == '__main__':
         state_dict = torch.load(os.path.join(args.save_path, "best_training_model.pth"))
         router_model.load_state_dict(state_dict)
         print("test start")
-        test_result = evaluation(router_model, args.final_eval_data_paths, args.final_eval_data_type, tokenizer, batch_size=32, device="cuda")
+        test_result = evaluation(router_model, args.final_eval_data_paths, args.final_eval_data_type, tokenizer, batch_size=32, device=device)
         print(test_result)
 
         output_order = ['mmlu', 'gsm8k', 'cmmlu', 'arc', 'humaneval', 'MATH', 'mbpp', 'ceval']
