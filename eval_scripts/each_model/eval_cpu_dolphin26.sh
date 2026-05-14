@@ -46,7 +46,7 @@ lm_eval --model hf \
 
 # humaneval (requires bigcode-evaluation-harness)
 save_path="./output/humaneval/${model_name}/"
-python "/Users/minhle/Documents/MSc research/Reproduce papers/RouterDC/evaluation_LLM_tools/bigcode-evaluation-harness/main.py" \
+python "/scratch/minh.le4/RouterDC/evaluation_LLM_tools/bigcode-evaluation-harness/main.py" \
   --model $model_path \
   --max_length_generation 512 \
   --tasks humaneval \
