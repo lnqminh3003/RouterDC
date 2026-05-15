@@ -1,4 +1,4 @@
-export CUDA_VISIBLE_DEVICES="6"
+# export CUDA_VISIBLE_DEVICES="6"
 
 top_k=3
 last_k=3
