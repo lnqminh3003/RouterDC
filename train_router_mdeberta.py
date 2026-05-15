@@ -113,12 +113,12 @@ class RouterModule(nn.Module):
             last_x = torch.gather(x, 1, negtive_index)
 
             # make the last_x ignore the true items
-            last_x = torch.where(last_index_true > 0.5, float("-inf"), last_x)
+            last_x = torch.where(last_index_true > 0.5, torch.tensor(-1e4, dtype=last_x.dtype, device=last_x.device), last_x)
 
             temp_x = torch.concat([top_x, last_x], dim=-1)
 
             softmax_x = nn.Softmax(dim=-1)(temp_x)
-            log_x = torch.log(softmax_x[:,0])
+            log_x = torch.log(softmax_x[:,0].clamp(min=1e-8))
             log_x = log_x * mask 
             # * mask2
             loss += torch.mean(-log_x)
@@ -144,10 +144,10 @@ class RouterModule(nn.Module):
         rearrange_similar_score = torch.gather(similar_score, 1, all_index)
 
         softmax_sample_x = torch.softmax(rearrange_similar_score, dim=-1)
-        log_sample_x = torch.log(softmax_sample_x)
+        log_sample_x = torch.log(softmax_sample_x.clamp(min=1e-8))
         loss = torch.mean(-log_sample_x[:,0])
         return loss
-    
+
     def compute_cluster_loss(self, hidden_state, cluster_ids, t, H=3):
         similar_score = self.compute_similarity(hidden_state, hidden_state)
         last_k2 = H
@@ -168,7 +168,7 @@ class RouterModule(nn.Module):
         rearrange_similar_score = torch.gather(similar_score, 1, all_index)
 
         softmax_sample_x = torch.softmax(rearrange_similar_score, dim=-1)
-        log_sample_x = torch.log(softmax_sample_x)
+        log_sample_x = torch.log(softmax_sample_x.clamp(min=1e-8))
         loss = torch.mean(-log_sample_x[:,0])
         return loss
 
