@@ -250,7 +250,7 @@ if __name__ == '__main__':
 
     # get router model (mdeberta-v3-base)
     tokenizer = AutoTokenizer.from_pretrained("microsoft/mdeberta-v3-base", truncation_side='left', padding=True)
-    encoder_model = DebertaV2Model.from_pretrained("microsoft/mdeberta-v3-base")
+    encoder_model = DebertaV2Model.from_pretrained("microsoft/mdeberta-v3-base").float()
 
     # get the training data (x, y)
     router_datasets = [RouterDataset(data_path, size=args.training_samples_per_dataset, data_type=args.test_data_type[i], dataset_id = i) for i, data_path in enumerate(args.data_paths)]
