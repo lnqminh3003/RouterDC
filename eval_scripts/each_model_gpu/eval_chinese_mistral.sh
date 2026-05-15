@@ -21,7 +21,7 @@ model_name="Chinese-Mistral-7B-v0.1"
 #     --gen_kwargs "do_sample=True,temperature=0.2"
 
 # mmlu
-lm_eval --model hf \
+lm_eval --model vllm \
     --model_args "pretrained=$model_path,max_model_len=4096" \
     --tasks mmlu \
     --batch_size auto \
