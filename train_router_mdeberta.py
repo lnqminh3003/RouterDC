@@ -93,7 +93,7 @@ class RouterModule(nn.Module):
     def forward(self, t=1, **input_kwargs):
         x = self.backbone(**input_kwargs)
         # We used the first token as classifier token.
-        hidden_state = x['last_hidden_state'][:,0,:]
+        hidden_state = x['last_hidden_state'][:,0,:].float()
         x = self.compute_similarity(hidden_state, self.embeddings.weight)
         x = x / t
         return x, hidden_state
