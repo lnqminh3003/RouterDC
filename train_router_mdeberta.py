@@ -84,7 +84,7 @@ class RouterModule(nn.Module):
 
     def compute_similarity(self, input1, input2):
         if self.similarity_function == "cos":
-            return (input1 @ input2.T) / (torch.norm(input1,dim=1).unsqueeze(1) * torch.norm(input2,dim=1).unsqueeze(0))
+            return torch.nn.functional.normalize(input1, dim=1) @ torch.nn.functional.normalize(input2, dim=1).T
         else:
             return input1 @ input2.T
 
