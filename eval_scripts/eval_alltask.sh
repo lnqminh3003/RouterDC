@@ -7,7 +7,6 @@ export CUDA_VISIBLE_DEVICES="${device}"
 lm_eval --model vllm \
     --model_args pretrained=$model_path \
     --tasks gsm8k_train \
-    --device "cuda:${device}" \
     --batch_size 32 \
     --output_path "./output/gsm8k_train-t0.2/${model_name}" \
     --log_samples \
@@ -17,7 +16,6 @@ lm_eval --model vllm \
 lm_eval --model vllm \
     --model_args pretrained=$model_path \
     --tasks gsm8k-repeat10 \
-    --device "cuda:${device}" \
     --batch_size 32 \
     --output_path "./output/gsm8k_test-t0.2/${model_name}" \
     --log_samples \
@@ -27,7 +25,6 @@ lm_eval --model vllm \
 lm_eval --model vllm \
     --model_args pretrained=$model_path \
     --tasks minerva_math_* \
-    --device "cuda:${device}" \
     --batch_size 32 \
     --output_path "./output/MATH/${model_name}" \
     --log_samples \
@@ -37,7 +34,6 @@ lm_eval --model vllm \
 lm_eval --model vllm \
       --model_args pretrained=$model_path \
       --tasks hellaswag \
-      --device "cuda:${device}" \
       --batch_size 32 \
       --output_path "./output/hellaswag_validation/${model_name}" \
       -f 10 \
@@ -47,7 +43,6 @@ lm_eval --model vllm \
 lm_eval --model vllm \
     --model_args "pretrained=$model_path,max_model_len=4096" \
     --tasks mmlu \
-    --device "cuda:${device}" \
     --batch_size auto \
     --output_path "./output/mmlu_5shot/${model_name}" \
     --log_samples \
@@ -57,7 +52,6 @@ lm_eval --model vllm \
 lm_eval --model vllm \
     --model_args pretrained=$model_path \
     --tasks arc_easy \
-    --device "cuda:${device}" \
     --batch_size 32 \
     --output_path "./output/arc_easy/${model_name}" \
     --log_samples
@@ -65,7 +59,6 @@ lm_eval --model vllm \
 lm_eval --model vllm \
     --model_args pretrained=$model_path \
     --tasks arc_challenge \
-    --device "cuda:${device}" \
     --batch_size 32 \
     --output_path "./output/arc_challenge/${model_name}" \
     --log_samples
@@ -109,7 +102,7 @@ accelerate launch  /data/home/chensh/projects/bigcode-evaluation-harness/main.py
 lm_eval --model vllm \
     --model_args "pretrained=$model_path,max_model_len=4096" \
     --tasks ceval-valid \
-    --device "cuda:${device}" \
+ 
     --batch_size auto \
     --output_path "./output/ceval-validation/${model_name}" \
     --log_samples \
@@ -119,7 +112,7 @@ lm_eval --model vllm \
 lm_eval --model vllm \
     --model_args "pretrained=$model_path,max_model_len=4096" \
     --tasks cmmlu \
-    --device "cuda:${device}" \
+ 
     --batch_size auto \
     --output_path "./output/cmmlu/${model_name}" \
     --log_samples \
