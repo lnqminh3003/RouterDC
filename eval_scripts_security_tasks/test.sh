@@ -3,7 +3,7 @@ model_name="CodeLlama-7b-Instruct"
 
 # primevul
 lm_eval --model vllm \
-    --model_args "pretrained=$model_path,max_model_len=26653" \
+    --model_args "pretrained=$model_path,max_model_len=16384" \
     --tasks primevul \
     --batch_size auto \
     --output_path "./output/primevul/${model_name}" \
