@@ -3,7 +3,7 @@ dataset_path: colin/PrimeVul
 dataset_name: paired            
 output_type: multiple_choice
 
-test_split: test
+test_split: train
 num_fewshot: 0
 
 doc_to_text: "Analyze this C/C++ function and determine if it contains a security vulnerability.\n\nFunction:\n```c\n{{func}}\n```\n\nIs this function vulnerable?"
