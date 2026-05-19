@@ -19,7 +19,7 @@ generation_kwargs:
   temperature: 0.2
   max_gen_toks: 10
 
-repeats: 10
+repeats: 5
 
 filter_list:
   - name: "extract-answer"
