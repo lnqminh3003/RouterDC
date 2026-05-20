@@ -3,8 +3,7 @@ dataset_path: json
 dataset_name: null
 dataset_kwargs:
   data_files:
-    train: data_preprocessing/datasets/primevul_1to2/train.jsonl
-    test: data_preprocessing/datasets/primevul_1to2/test.jsonl
+    train: data_preprocessing/datasets/primevul_1to2/all.jsonl
 output_type: multiple_choice
 
 test_split: train

@@ -4,7 +4,13 @@ import re
 from sklearn.metrics import f1_score, accuracy_score, confusion_matrix
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-path = os.path.join(BASE, "output/primevul_gen_1to2/CodeLlama-7b-Instruct/codellama__CodeLlama-7b-Instruct-hf/samples_primevul_gen_1to2_2026-05-19T19-44-00.595573.jsonl")
+
+
+# path = os.path.join(BASE, "output/primevul_gen_1to2/CodeLlama-7b-Instruct/codellama__CodeLlama-7b-Instruct-hf/samples_primevul_gen_1to2_2026-05-19T19-44-00.595573.jsonl")
+path = os.path.join(BASE, "output/primevul_gen_1to2/CodeLlama-13b-Instruct/codellama__CodeLlama-13b-Instruct-hf/samples_primevul_gen_1to2_2026-05-20T02-03-02.083582.jsonl")
+# path = os.path.join(BASE, "output/primevul_gen_1to2/DeepSeek-Coder-V2-Lite-Instruct/deepseek-ai__DeepSeek-Coder-V2-Lite-Instruct/samples_primevul_gen_1to2_2026-05-20T00-42-42.795607.jsonl")
+
+
 
 with open(path) as f:
     data = [json.loads(line) for line in f]
