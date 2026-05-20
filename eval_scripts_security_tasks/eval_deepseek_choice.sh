@@ -2,7 +2,7 @@ model_path="deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct"
 model_name="DeepSeek-Coder-V2-Lite-Instruct"
 
 lm_eval --model vllm \
-    --model_args "pretrained=$model_path,max_model_len=8192" \
+    --model_args "pretrained=$model_path,max_model_len=8192,trust_remote_code=True" \
     --tasks primevul_choice_1to2 \
     --batch_size auto \
     --output_path "./output/primevul_choice_1to2/${model_name}" \

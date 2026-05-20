@@ -1,5 +1,5 @@
-model_path="codellama/CodeLlama-7b-Instruct-hf"
-model_name="CodeLlama-7b-Instruct"
+model_path="codellama/CodeLlama-13b-Instruct-hf"
+model_name="CodeLlama-13b-Instruct"
 
 # primevul
 lm_eval --model vllm \

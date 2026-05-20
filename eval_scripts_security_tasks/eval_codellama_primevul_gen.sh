@@ -1,5 +1,5 @@
-model_path="codellama/CodeLlama-7b-Instruct-hf"
-model_name="CodeLlama-7b-Instruct"
+model_path="codellama/CodeLlama-13b-Instruct-hf"
+model_name="CodeLlama-13b-Instruct"
 
 lm_eval --model vllm \
     --model_args "pretrained=$model_path,max_model_len=4096" \
