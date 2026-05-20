@@ -1,4 +1,4 @@
-task: primevul_1to2
+task: primevul_choice_1to2
 dataset_path: json
 dataset_name: null
 dataset_kwargs:
