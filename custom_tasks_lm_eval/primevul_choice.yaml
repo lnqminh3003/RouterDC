@@ -1,6 +1,6 @@
 task: primevul
 dataset_path: colin/PrimeVul
-dataset_name: paired            
+dataset_name: default            
 output_type: multiple_choice
 
 test_split: train
