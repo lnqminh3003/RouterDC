@@ -7,7 +7,7 @@ BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
  
 # path = os.path.join(BASE, "output/primevul_choice_1to2/CodeLlama-7b-Instruct/codellama__CodeLlama-7b-Instruct-hf/samples_primevul_choice_1to2_2026-05-19T19-09-21.587827.jsonl")
-path = os.path.join(BASE, "output/primevul_choice_1to2/CodeLlama-13b-Instruct/codellama__CodeLlama-13b-Instruct-hf/samples_primevul_choice_1to2_2026-05-20T01-05-33.500406.jsonl")
+path = os.path.join(BASE, "output/primevul_choice_1to2/CodeLlama-13b-Instruct/codellama__CodeLlama-13b-Instruct-hf/samples_primevul_choice_1to2_2026-05-20T18-20-27.697534.jsonl")
 
 
 with open(path) as f:

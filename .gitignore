@@ -2,3 +2,6 @@
 
 output/**/*.json
 output/**/*.jsonl
+
+backup/**/*.json
+backup/**/*.jsonl
