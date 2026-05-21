@@ -9,7 +9,7 @@ output_type: multiple_choice
 test_split: train
 num_fewshot: 0
 
-doc_to_text: "Analyze this C/C++ function and determine if it contains a security vulnerability.\n\nFunction:\n```c\n{{func}}\n```\n\nIs this function vulnerable?"
+doc_to_text: "You are a security expert specializing in C/C++ vulnerability detection. Your task is to analyze the given function carefully and determine whether it contains a security vulnerability. Answer Yes if you can identify a vulnerability.\n\nFunction:\n```c\n{{func}}\n```\n\nIs this function vulnerable?"
 doc_to_choice: ["No", "Yes"]
 doc_to_target: "{{target}}"
 
