@@ -47,7 +47,7 @@ print(f"Embeddings shape: {all_hidden_states.shape}")
 
 # ── cell 1: t-SNE ─────────────────────────────────────────────────────────────
 np_hidden_states = all_hidden_states.cpu().numpy()
-tsne_result      = TSNE(n_components=5, n_jobs=12).fit(np_hidden_states)
+tsne_result      = TSNE(n_components=5, n_jobs=12, negative_gradient_method='bh').fit(np_hidden_states)
 print(f"t-SNE result shape: {tsne_result.shape}")
 
 # ── cell 2: k-means → save ────────────────────────────────────────────────────
