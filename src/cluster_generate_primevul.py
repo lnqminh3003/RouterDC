@@ -1,6 +1,8 @@
 import os
 import sys
-sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+ROOT_DIR   = os.path.dirname(SCRIPT_DIR)
+sys.path.append(ROOT_DIR)
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
 import torch
@@ -15,12 +17,12 @@ from transformers import AutoTokenizer, DebertaV2Model
 from train_router_mdeberta import RouterDataset, RouterModule
 
 # ── config ────────────────────────────────────────────────────────────────────
-dataset_paths      = ["../datasets/split2_primevul_gen/primevul_gen_train.json"]
+dataset_paths      = [os.path.join(ROOT_DIR, "datasets/split2_primevul_gen/primevul_gen_train.json")]
 data_types         = ["multi_attempt"]
 number_per_dataset = 12608
 n_clusters         = 5       # paper uses N=5
 seed               = 42
-base_output_path   = "../datasets/split2_primevul_cluster_gen"
+base_output_path   = os.path.join(ROOT_DIR, "datasets/split2_primevul_cluster_gen")
 
 random.seed(seed)
 np.random.seed(seed)
