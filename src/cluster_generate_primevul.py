@@ -15,12 +15,12 @@ from transformers import AutoTokenizer, DebertaV2Model
 from train_router_mdeberta import RouterDataset, RouterModule
 
 # ── config ────────────────────────────────────────────────────────────────────
-dataset_paths      = ["../datasets/split2_primevul/primevul_train.json"]
+dataset_paths      = ["../datasets/split2_primevul_gen/primevul_gen_train.json"]
 data_types         = ["multi_attempt"]
 number_per_dataset = 12608
 n_clusters         = 5       # paper uses N=5
 seed               = 42
-base_output_path   = "../datasets/split2_primevul_cluster"
+base_output_path   = "../datasets/split2_primevul_cluster_gen"
 
 random.seed(seed)
 np.random.seed(seed)

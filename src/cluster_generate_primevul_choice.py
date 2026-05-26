@@ -14,7 +14,7 @@ import random
 import json
 
 # ── cell 0: extract embeddings ────────────────────────────────────────────────
-dataset_paths = ["../datasets/split2_primevul/primevul_choice_train.json"]
+dataset_paths = ["../datasets/split2_primevul_choice/primevul_choice_train.json"]
 data_types    = ["probability"]   # multiple choice → Eq. 2 scores
 
 number_per_dataset = 12608
@@ -52,7 +52,7 @@ seed = 42
 random.seed(seed)
 np.random.seed(seed)
 
-base_output_path = "../datasets/split2_primevul_cluster"
+base_output_path = "../datasets/split2_primevul_cluster_choice"
 os.makedirs(base_output_path, exist_ok=True)
 
 x      = tsne_result
