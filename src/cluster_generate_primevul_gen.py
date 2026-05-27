@@ -77,7 +77,7 @@ for i, data_path in enumerate(dataset_paths):
         new_sample['cluster_id'] = cluster_ids[j]
         new_sample_list.append(new_sample)
 
-    out_name = data_path.split('/')[-1].replace('.json', '_python_gen.json')
+    out_name = data_path.split('/')[-1].replace('.json', '_python.json')
     out_path = os.path.join(base_output_path, out_name)
     with open(out_path, 'w') as f:
         json.dump(new_sample_list, f)
