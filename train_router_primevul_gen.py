@@ -80,7 +80,7 @@ class RouterModule(nn.Module):
         with torch.no_grad():
             nn.init.normal_(self.embeddings.weight, mean=0, std=std_dev)
         self.similarity_function = similarity_function
-            
+
 
     def compute_similarity(self, input1, input2):
         if self.similarity_function == "cos":
@@ -119,14 +119,13 @@ class RouterModule(nn.Module):
 
             softmax_x = nn.Softmax(dim=-1)(temp_x)
             log_x = torch.log(softmax_x[:,0])
-            log_x = log_x * mask 
+            log_x = log_x * mask
             loss += torch.mean(-log_x)
         return loss
-    
+
     def compute_sample_sample_loss_with_task_tag(self, hidden_state, dataset_ids, t, H=3):
         similar_score = self.compute_similarity(hidden_state, hidden_state)
         last_k2 = H
-        # get the index of corresponding dataset_id
         all_index = []
         for dataset_id in dataset_ids:
             positive_indexs = torch.nonzero(dataset_ids == dataset_id)
@@ -146,11 +145,10 @@ class RouterModule(nn.Module):
         log_sample_x = torch.log(softmax_sample_x)
         loss = torch.mean(-log_sample_x[:,0])
         return loss
-    
+
     def compute_cluster_loss(self, hidden_state, cluster_ids, t, H=3):
         similar_score = self.compute_similarity(hidden_state, hidden_state)
         last_k2 = H
-        # get the index of corresponding dataset_id
         all_index = []
         for cluster_id in cluster_ids:
             positive_indexs = torch.nonzero(cluster_ids == cluster_id)
@@ -172,8 +170,8 @@ class RouterModule(nn.Module):
         return loss
 
 
-# evaluation the router with dataset. 
-def evaluation(router_model, dataset_paths, dataset_types, tokenizer, batch_size, device):    
+# evaluation the router with dataset.
+def evaluation(router_model, dataset_paths, dataset_types, tokenizer, batch_size, device):
     result = {}
     with torch.no_grad():
         assert len(dataset_paths) == len(dataset_types)
@@ -213,33 +211,33 @@ def evaluation(router_model, dataset_paths, dataset_types, tokenizer, batch_size
     return result
 
 
-if __name__ == '__main__': 
+if __name__ == '__main__':
     device = "cuda"
-    parser = argparse.ArgumentParser(description="the training code for router")
+    parser = argparse.ArgumentParser(description="Router training for PrimeVul (generate_until / Eq. 1)")
 
     # dataset and path
-    parser.add_argument('--data_paths', nargs='+', default=["./datasets/split2_model7_cluster/gsm8k-train.json","./datasets/split2_model7_cluster/humaneval_train.json", "./datasets/split2_model7_cluster/arc_challenge_train.json", "./datasets/split2_model7_cluster/mmlu_train.json","./datasets/split2_model7_cluster/cmmlu_train.json",])
-    parser.add_argument('--test_data_paths',nargs='+', default=["./datasets/split2_model7/gsm8k-test.json", "./datasets/split2_model7/humaneval_test.json", "./datasets/split2_model7/arc_challenge_test.json", "./datasets/split2_model7/mmlu_test.json", "./datasets/split2_model7/cmmlu_test.json"])
-    parser.add_argument('--test_data_type', nargs='+', default=["multi_attempt", "multi_attempt", "probability", "probability", "probability"])
-    parser.add_argument('--final_eval_data_paths', default=["./datasets/split2_model7/arc_challenge_test.json", "./datasets/split2_model7/MATH_prealgebra.json", "./datasets/split2_model7/mbpp.json", "./datasets/split2_model7/ceval.json" ,"./datasets/split2_model7/gsm8k-test.json", "./datasets/split2_model7/humaneval_test.json",  "./datasets/split2_model7/mmlu_test.json", "./datasets/split2_model7/cmmlu_test.json"])
-    parser.add_argument('--final_eval_data_type', nargs='+', default=["probability", "probability", "multi_attempt","probability", "multi_attempt", "multi_attempt", "probability",  "probability"])
+    parser.add_argument('--data_paths', nargs='+', default=["./datasets/split2_primevul_cluster_gen/primevul_gen_train.json"])
+    parser.add_argument('--test_data_paths', nargs='+', default=["./datasets/split2_primevul_gen/primevul_gen_test.json"])
+    parser.add_argument('--test_data_type', nargs='+', default=["multi_attempt"])
+    parser.add_argument('--final_eval_data_paths', nargs='+', default=["./datasets/split2_primevul_gen/primevul_gen_test.json"])
+    parser.add_argument('--final_eval_data_type', nargs='+', default=["multi_attempt"])
 
     # training paras
     parser.add_argument('--batch_size', type=int, default=64)
     parser.add_argument('--training_steps', type=int, default=1000)
-    parser.add_argument('--eval_steps',type=int,default=50)
+    parser.add_argument('--eval_steps', type=int, default=50)
     parser.add_argument('--learning_rate', type=float, default=0.00005)
-    parser.add_argument('--save_path', type=str, default='./logs/router_debug/')
+    parser.add_argument('--save_path', type=str, default='./logs/router_primevul_gen/')
     parser.add_argument('--top_k', type=int, default=3)
-    parser.add_argument('--last_k',type=int, default=3)
+    parser.add_argument('--last_k', type=int, default=3)
     parser.add_argument('--tempreture', type=int, default=1)
     parser.add_argument('--gradient_accumulation', type=int, default=1)
     parser.add_argument('--similarity_function', type=str, default='cos')
     parser.add_argument('--sample_loss_weight', type=float, default=0)
-    parser.add_argument('--cluster_loss_weight', type=float, default=0)
+    parser.add_argument('--cluster_loss_weight', type=float, default=1)
     parser.add_argument('--H', type=int, default=3)
     parser.add_argument('--seed', type=int, default=42)
-    parser.add_argument('--training_samples_per_dataset', type=int, default=1000)
+    parser.add_argument('--training_samples_per_dataset', type=int, default=12608)
 
     # final_eval
     parser.add_argument('--final_eval', action="store_true")
@@ -252,7 +250,7 @@ if __name__ == '__main__':
     encoder_model = DebertaV2Model.from_pretrained("microsoft/mdeberta-v3-base").float()
 
     # get the training data (x, y)
-    router_datasets = [RouterDataset(data_path, size=args.training_samples_per_dataset, data_type=args.test_data_type[i], dataset_id = i) for i, data_path in enumerate(args.data_paths)]
+    router_datasets = [RouterDataset(data_path, size=args.training_samples_per_dataset, data_type=args.test_data_type[i], dataset_id=i) for i, data_path in enumerate(args.data_paths)]
     for router_dataset in router_datasets:
         router_dataset.register_tokenizer(tokenizer)
     router_dataset = ConcatDataset(router_datasets)
@@ -281,10 +279,9 @@ if __name__ == '__main__':
             scores = scores.to(device)
             dataset_ids = dataset_ids.to(device)
             cluster_ids = cluster_ids.to(device)
-            # normalize the target scores
 
             x, hidden_state = router_model.forward(t=args.tempreture, **inputs)
-            loss = router_model.compute_sample_llm_loss(x = x, index_true=scores, top_k = args.top_k, last_k = args.last_k)
+            loss = router_model.compute_sample_llm_loss(x=x, index_true=scores, top_k=args.top_k, last_k=args.last_k)
 
             if args.sample_loss_weight:
                 sample_sample_loss = router_model.compute_sample_sample_loss_with_task_tag(hidden_state=hidden_state, dataset_ids=dataset_ids, t=args.tempreture, H=args.H)
@@ -296,10 +293,10 @@ if __name__ == '__main__':
 
             losses.update(loss.item(), scores.size(0))
             loss.backward()
-            if step % args.gradient_accumulation == 0:   
+            if step % args.gradient_accumulation == 0:
                 optimizer.step()
 
-            pbar.set_postfix({"step": f"{step}","loss": loss.item()})
+            pbar.set_postfix({"step": f"{step}", "loss": loss.item()})
             pbar.write(f"step:{step}, loss:{loss.item()}")
             pbar.update(1)
             step += 1
@@ -307,20 +304,20 @@ if __name__ == '__main__':
                 break
             if (step + 1) % args.eval_steps == 0:
                 print("validation start")
-                val_result = evaluation(router_model, args.data_paths, args.test_data_type, tokenizer, batch_size = args.batch_size, device=device)
+                val_result = evaluation(router_model, args.data_paths, args.test_data_type, tokenizer, batch_size=args.batch_size, device=device)
                 print("test start")
-                test_result = evaluation(router_model, args.test_data_paths, args.test_data_type, tokenizer, batch_size = args.batch_size, device=device)
+                test_result = evaluation(router_model, args.test_data_paths, args.test_data_type, tokenizer, batch_size=args.batch_size, device=device)
                 result = {**val_result, **test_result}
-                average = sum([ value[1] for value in test_result.values()]) / len(test_result)
+                average = sum([value[1] for value in test_result.values()]) / len(test_result)
                 print("average testing", average)
                 if average > max_average:
-                    torch.save(router_model.state_dict(),  os.path.join(args.save_path, "best_model.pth"))
+                    torch.save(router_model.state_dict(), os.path.join(args.save_path, "best_model.pth"))
                     max_average = average
                 training_log.append(result)
-                training_average = sum([ value[1] for value in val_result.values()]) / len(test_result)
+                training_average = sum([value[1] for value in val_result.values()]) / len(test_result)
                 print("average training", training_average)
                 if training_average > max_training_average:
-                    torch.save(router_model.state_dict(),  os.path.join(args.save_path, "best_training_model.pth"))
+                    torch.save(router_model.state_dict(), os.path.join(args.save_path, "best_training_model.pth"))
                     max_training_average = training_average
 
         print(f"step:{step}, avg_loss_per_epoch:{losses.avg}")
@@ -334,16 +331,8 @@ if __name__ == '__main__':
         test_result = evaluation(router_model, args.final_eval_data_paths, args.final_eval_data_type, tokenizer, batch_size=32, device="cuda")
         print(test_result)
 
-        output_order = ['mmlu', 'gsm8k', 'cmmlu', 'arc', 'humaneval', 'MATH', 'mbpp', 'ceval']
-        key_list = list(test_result.keys())
-        key_order = []
-        for key_candidate in output_order:
-            for key in key_list:
-                if key_candidate in key:
-                    key_order.append(key)
-                    break
-        for key in key_order:
-            print(f"{test_result[key][1] * 100}", end=' ')
+        for key in test_result:
+            print(f"{test_result[key][1] * 100:.2f}", end=' ')
 
     print("best avg", max_average)
     print("best training avg", max_training_average)
