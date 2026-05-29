@@ -1,12 +1,15 @@
 task: primevul_gen
-dataset_path: colin/PrimeVul
-dataset_name: paired
+dataset_path: json
+dataset_name: null
+dataset_kwargs:
+  data_files:
+    train: data_preprocessing/datasets/primevul_balance/all.jsonl
 output_type: generate_until
 
 test_split: train
 num_fewshot: 0
 
-doc_to_text: "You are a security expert specializing in C/C++ vulnerability detection. Your task is to analyze the given function and determine whether it contains a security vulnerability such as buffer overflow, use-after-free, integer overflow, null pointer dereference, or other common CWE weaknesses.\n\nFunction:\n```c\n{{func}}\n```\n\nIs this function vulnerable? Answer in the format \\boxed{Yes} or \\boxed{No}.\n\nAnswer:"
+doc_to_text: "You are a security expert specializing in C/C++ vulnerability detection. Your task is to analyze the given function carefully and determine whether it contains a security vulnerability. Answer Yes if you can identify a vulnerability.\n\nFunction:\n```c\n{{func}}\n```\n\nIs this function vulnerable? Answer in the format \\boxed{Yes} or \\boxed{No}.\n\nAnswer:"
 doc_to_target: "{% if target == 1 %}Yes{% else %}No{% endif %}"
 
 generation_kwargs:
