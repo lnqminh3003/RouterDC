@@ -1,5 +1,5 @@
-model_path="google/gemma-3-12b-it"
-model_name="Gemma-3-12B-IT"
+model_path="google/gemma-2-9b-it"
+model_name="Gemma-2-9B-IT"
 
 export TRITON_CACHE_DIR=/tmp/triton_cache_$$
 
