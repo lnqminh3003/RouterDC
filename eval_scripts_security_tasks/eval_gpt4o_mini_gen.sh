@@ -6,5 +6,6 @@ lm_eval --model openai-chat-completions \
     --batch_size auto \
     --output_path "./output/primevul_gen/${model_name}" \
     --apply_chat_template \
+    --use_cache ./cache/primevul_gen_gpt4o_mini \
     --log_samples \
     --include_path ./custom_tasks_lm_eval
