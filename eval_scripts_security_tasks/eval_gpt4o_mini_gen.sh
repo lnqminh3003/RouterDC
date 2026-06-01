@@ -5,7 +5,6 @@ lm_eval --model openai-chat-completions \
     --tasks primevul_gen \
     --batch_size auto \
     --output_path "./output/primevul_gen/${model_name}" \
-    --limit 3057:3058 \
     --apply_chat_template \
     --use_cache ./cache/primevul_gen_gpt4o_mini \
     --log_samples \
