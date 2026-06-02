@@ -228,10 +228,10 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Router training for PrimeVul (generate_until / Eq. 1)")
 
     # dataset and path
-    parser.add_argument('--data_paths', nargs='+', default=["./datasets/split2_primevul_cluster_gen/primevul_gen_train.json"])
-    parser.add_argument('--test_data_paths', nargs='+', default=["./datasets/split2_primevul_gen/primevul_gen_test.json"])
+    parser.add_argument('--data_paths', nargs='+', default=["../datasets/primevul/balance_9models/gen_cluster/train.json"])
+    parser.add_argument('--test_data_paths', nargs='+', default=["../datasets/primevul/balance_9models/gen/test.json"])
     parser.add_argument('--test_data_type', nargs='+', default=["multi_attempt"])
-    parser.add_argument('--final_eval_data_paths', nargs='+', default=["./datasets/split2_primevul_gen/primevul_gen_test.json"])
+    parser.add_argument('--final_eval_data_paths', nargs='+', default=["../datasets/primevul/balance_9models/gen/test.json"])
     parser.add_argument('--final_eval_data_type', nargs='+', default=["multi_attempt"])
 
     # training paras
@@ -239,9 +239,9 @@ if __name__ == '__main__':
     parser.add_argument('--training_steps', type=int, default=1000)
     parser.add_argument('--eval_steps', type=int, default=50)
     parser.add_argument('--learning_rate', type=float, default=0.00005)
-    parser.add_argument('--save_path', type=str, default='./logs/router_primevul_gen/')
-    parser.add_argument('--top_k', type=int, default=3)
-    parser.add_argument('--last_k', type=int, default=3)
+    parser.add_argument('--save_path', type=str, default='./logs/router_primevul_gen_9models/')
+    parser.add_argument('--top_k', type=int, default=4)
+    parser.add_argument('--last_k', type=int, default=4)
     parser.add_argument('--tempreture', type=int, default=1)
     parser.add_argument('--gradient_accumulation', type=int, default=1)
     parser.add_argument('--similarity_function', type=str, default='cos')
@@ -249,7 +249,7 @@ if __name__ == '__main__':
     parser.add_argument('--cluster_loss_weight', type=float, default=1)
     parser.add_argument('--H', type=int, default=3)
     parser.add_argument('--seed', type=int, default=42)
-    parser.add_argument('--training_samples_per_dataset', type=int, default=12608)
+    parser.add_argument('--training_samples_per_dataset', type=int, default=8405)
 
     # final_eval
     parser.add_argument('--final_eval', action="store_true")

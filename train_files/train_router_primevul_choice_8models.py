@@ -228,10 +228,10 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Router training for PrimeVul (multiple choice / Eq. 2)")
 
     # dataset and path
-    parser.add_argument('--data_paths', nargs='+', default=["./datasets/split2_primevul_cluster_choice/primevul_choice_train_python_choice.json"])
-    parser.add_argument('--test_data_paths', nargs='+', default=["./datasets/split2_primevul_choice/primevul_choice_test.json"])
+    parser.add_argument('--data_paths', nargs='+', default=["../datasets/primevul/balance_8models/choice_cluster/train.json"])
+    parser.add_argument('--test_data_paths', nargs='+', default=["../datasets/primevul/balance_8models/choice/test.json"])
     parser.add_argument('--test_data_type', nargs='+', default=["probability"])
-    parser.add_argument('--final_eval_data_paths', nargs='+', default=["./datasets/split2_primevul_choice/primevul_choice_test.json"])
+    parser.add_argument('--final_eval_data_paths', nargs='+', default=["../datasets/primevul/balance_8models/choice/test.json"])
     parser.add_argument('--final_eval_data_type', nargs='+', default=["probability"])
 
     # training paras
@@ -239,7 +239,7 @@ if __name__ == '__main__':
     parser.add_argument('--training_steps', type=int, default=1000)
     parser.add_argument('--eval_steps', type=int, default=50)
     parser.add_argument('--learning_rate', type=float, default=0.00005)
-    parser.add_argument('--save_path', type=str, default='./logs/router_primevul_choice/')
+    parser.add_argument('--save_path', type=str, default='./logs/router_primevul_choice_8models/')
     parser.add_argument('--top_k', type=int, default=3)
     parser.add_argument('--last_k', type=int, default=3)
     parser.add_argument('--tempreture', type=int, default=1)
@@ -249,7 +249,7 @@ if __name__ == '__main__':
     parser.add_argument('--cluster_loss_weight', type=float, default=1)
     parser.add_argument('--H', type=int, default=3)
     parser.add_argument('--seed', type=int, default=42)
-    parser.add_argument('--training_samples_per_dataset', type=int, default=12608)
+    parser.add_argument('--training_samples_per_dataset', type=int, default=8405)
 
     # final_eval
     parser.add_argument('--final_eval', action="store_true")
