@@ -178,9 +178,11 @@ def evaluation(router_model, dataset_paths, dataset_types, tokenizer, batch_size
         for index, data_path in enumerate(dataset_paths):
             test_dataset = RouterDataset(data_path=data_path)
             test_dataset.register_tokenizer(tokenizer)
+            router_node = test_dataset.router_node
             data_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=True)
             correct_predict = 0
             correct = 0
+            route_counts = torch.zeros(len(router_node), dtype=torch.long)
             for batch in data_loader:
                 inputs, scores, _, _ = batch
                 inputs = inputs.to(device)
@@ -188,6 +190,8 @@ def evaluation(router_model, dataset_paths, dataset_types, tokenizer, batch_size
                 x, _ = router_model.forward(**inputs)
                 softmax_x = nn.Softmax(dim=1)(x)
                 _, max_index = torch.max(softmax_x, dim=1)
+
+                route_counts += torch.bincount(max_index.cpu(), minlength=len(router_node))
 
                 _, target_max_index = torch.max(scores, dim=1)
                 equals = max_index.eq(target_max_index)
@@ -207,6 +211,14 @@ def evaluation(router_model, dataset_paths, dataset_types, tokenizer, batch_size
             acc = correct/len(test_dataset)
             print(f"acc_{data_path}:", acc_predict)
             print("acc", acc)
+
+            total_queries = route_counts.sum().item()
+            print(f"Routing distribution ({total_queries} queries):")
+            for i, model_name in enumerate(router_node):
+                count = route_counts[i].item()
+                pct = count / total_queries * 100 if total_queries > 0 else 0
+                print(f"  {model_name:<50} {count:>6}  ({pct:5.1f}%)")
+
             result[data_path] = [acc, acc_predict]
     return result
 
