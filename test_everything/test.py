@@ -1,161 +1,104 @@
 """
-1. For each model, show accuracy bucket distribution (0.0 – 1.0) from raw JSONL.
-2. Read generated train/test JSON and print per-query scores for all models.
-3. Show unique accuracy values present in train and test sets.
+Estimate total tokens and cost for running gpt-4o-mini on primevul_balance/all.jsonl.
+
+Accounts for:
+  - repeats: 5  (each sample is run 5 times, per primevul_gen.yaml)
+  - max_gen_toks: 20  (max output tokens per generation)
+  - apply_chat_template adds a system turn overhead
 """
 
 import json
-import glob
-import re
-from collections import Counter
 from pathlib import Path
 
-BASE = Path(__file__).parent.parent
+try:
+    import tiktoken
+    enc = tiktoken.encoding_for_model("gpt-4o-mini")  # o200k_base
+    token_method = "tiktoken (gpt-4o-mini / o200k_base)"
+except ImportError:
+    enc = None
+    token_method = "char/4 fallback (install tiktoken for exact counts)"
 
-model_list = [
-    ["codellama",      "CodeLlama-7b-Instruct-hf",        "CodeLlama-7b-Instruct"],
-    ["codellama",      "CodeLlama-13b-Instruct-hf",       "CodeLlama-13b-Instruct"],
-    ["deepseek-ai",    "DeepSeek-Coder-V2-Lite-Instruct", "DeepSeek-Coder-V2-Lite-Instruct"],
-    ["Qwen",           "Qwen2.5-Coder-14B-Instruct",      "Qwen2.5-Coder-14B-Instruct"],
-    ["bigcode",        "starcoder2-15b-instruct-v0.1",    "starcoder2-15b-instruct"],
-    ["Virtue-AI-HUB",  "VulnLLM-R-7B",                   "VulnLLM-R-7B"],
-]
+# ── Pricing (gpt-4o-mini) ────────────────────────────────────────────────────
+INPUT_PRICE_PER_M  = 0.150   # USD per 1M input tokens
+OUTPUT_PRICE_PER_M = 0.600   # USD per 1M output tokens
 
-BUCKETS = [0.0, 0.2, 0.4, 0.6, 0.8, 1.0]
-DATASET_DIR = BASE / "datasets/split2_primevul"
+# ── Task config (from custom_tasks_lm_eval/primevul_gen.yaml) ─────────────────
+REPEATS       = 5
+MAX_GEN_TOKS  = 20
 
+PROMPT_TEMPLATE = (
+    "You are a security expert specializing in C/C++ vulnerability detection. "
+    "Your task is to analyze the given function carefully and determine whether "
+    "it contains a security vulnerability. "
+    "Answer Yes if you can identify a vulnerability.\n\n"
+    "Function:\n```c\n{func}\n```\n\n"
+    "Is this function vulnerable? "
+    "Answer in the format \\boxed{{Yes}} or \\boxed{{No}}.\n\nAnswer:"
+)
 
-def extract_answer(raw: str) -> str | None:
-    m = re.search(r"\\boxed\{(Yes|No)", raw, re.IGNORECASE)
-    if m:
-        return m.group(1).capitalize()
-    m = re.search(r"\b(Yes|No)\b", raw, re.IGNORECASE)
-    if m:
-        return m.group(1).capitalize()
-    return None
-
-
-# ── Section 1: bucket distribution from raw JSONL ────────────────────────────
-
-def section_bucket_distribution():
-    print("=" * 90)
-    print("SECTION 1 — Accuracy bucket distribution per model (from raw JSONL)")
-    print("=" * 90)
-
-    header = f"{'Model':<50}" + "".join(f"  {b:.1f}" for b in BUCKETS) + "   total"
-    print(header)
-    print("─" * len(header))
-
-    for org, model_name, dir_name in model_list:
-        pattern = str(BASE / f"output/primevul_gen_1to2/{dir_name}/*/samples_primevul_gen_1to2_*.jsonl")
-        files = glob.glob(pattern)
-        if not files:
-            print(f"{org}/{model_name:<45}  [no file found]")
-            continue
-
-        counts: Counter = Counter()
-
-        with open(files[0]) as f:
-            for line in f:
-                if not line.strip():
-                    continue
-                entry  = json.loads(line)
-                resps  = entry.get("resps", [[]])[0]
-                target = entry["target"].strip()
-
-                answers = [extract_answer(r) for r in resps]
-                valid   = [a for a in answers if a is not None]
-                correct = sum(1 for a in valid if a == target)
-                acc     = round(correct / len(resps), 1) if resps else 0.0
-
-                counts[acc] += 1
-
-        total = sum(counts.values())
-        row = f"{org}/{model_name:<45}"
-        for b in BUCKETS:
-            row += f"  {counts[b]:>5}"
-        row += f"   {total:>6,}"
-        print(row)
+# --apply_chat_template wraps the prompt in a user turn; the chat wrapper itself
+# adds a small fixed overhead (role tokens + delimiters). We approximate it here.
+CHAT_WRAPPER_OVERHEAD = 10  # tokens for role markers / delimiters per message
 
 
-# ── Section 2: per-query scores from generated JSON files ────────────────────
-
-def print_split(name: str, data: list, n: int = 20):
-    model_ids = list(data[0]["scores"].keys())
-
-    print(f"\n{'─'*90}")
-    print(f"{name}  ({len(data):,} queries total, showing first {n})")
-    print(f"{'─'*90}")
-
-    header = f"  {'#':>5}  {'query (first 60 chars)':<62}"
-    for mid in model_ids:
-        short = mid.split("/")[-1][:10]
-        header += f"  {short:>10}"
-    print(header)
-    print("  " + "─" * (len(header) - 2))
-
-    for idx, item in enumerate(data[:n]):
-        preview = item["question"].replace("\n", " ").strip()[:60]
-        row = f"  {idx:>5}  {preview:<62}"
-        for mid in model_ids:
-            score = item["scores"].get(mid, float("nan"))
-            row += f"  {score:>10.2f}"
-        print(row)
+def count_tokens(text: str) -> int:
+    if enc is not None:
+        return len(enc.encode(text))
+    return len(text) // 4
 
 
-def section_per_query_scores():
-    print("\n\n" + "=" * 90)
-    print("SECTION 2 — Per-query scores from generated train/test JSON")
-    print("=" * 90)
-
-    for split_file in ["primevul_train.json", "primevul_test.json"]:
-        path = DATASET_DIR / split_file
-        if not path.exists():
-            print(f"[skip] {split_file} not found")
-            continue
-        with open(path) as f:
-            data = json.load(f)
-        print_split(split_file, data, n=20)
+BASE      = Path(__file__).parent.parent
+JSONL     = BASE / "data_preprocessing/datasets/primevul_balance/all.jsonl"
 
 
-# ── Section 3: unique accuracy values in train and test ──────────────────────
+def main():
+    print(f"Tokenizer : {token_method}")
+    print(f"Dataset   : {JSONL}")
+    print(f"Repeats   : {REPEATS}  |  max_gen_toks: {MAX_GEN_TOKS}")
+    print(f"Pricing   : ${INPUT_PRICE_PER_M}/1M input  |  ${OUTPUT_PRICE_PER_M}/1M output")
+    print()
 
-def section_unique_scores():
-    print("\n\n" + "=" * 90)
-    print("SECTION 3 — Unique accuracy values in train / test sets")
-    print("=" * 90)
+    if not JSONL.exists():
+        print(f"[ERROR] File not found: {JSONL}")
+        return
 
-    for split_file in ["primevul_train.json", "primevul_test.json"]:
-        path = DATASET_DIR / split_file
-        if not path.exists():
-            print(f"[skip] {split_file} not found")
-            continue
+    total_samples       = 0
+    total_input_tokens  = 0
+    total_output_tokens = 0
 
-        with open(path) as f:
-            data = json.load(f)
+    with open(JSONL) as f:
+        for line in f:
+            line = line.strip()
+            if not line:
+                continue
+            entry = json.loads(line)
+            func  = entry.get("func", "")
 
-        # unique values globally and per model
-        global_values: set = set()
-        per_model: dict[str, set] = {}
+            prompt       = PROMPT_TEMPLATE.format(func=func)
+            prompt_toks  = count_tokens(prompt) + CHAT_WRAPPER_OVERHEAD
 
-        for item in data:
-            for model_id, score in item["scores"].items():
-                val = round(score, 4)
-                global_values.add(val)
-                per_model.setdefault(model_id, set()).add(val)
+            # each sample is evaluated REPEATS times
+            total_input_tokens  += prompt_toks * REPEATS
+            total_output_tokens += MAX_GEN_TOKS * REPEATS
+            total_samples       += 1
 
-        print(f"\n{split_file}  ({len(data):,} queries)")
-        print(f"  Global unique values ({len(global_values)}): "
-              f"{sorted(global_values)}")
-        print(f"  Per model:")
-        for model_id, vals in per_model.items():
-            short = model_id.split("/")[-1]
-            print(f"    {short:<45}  {sorted(vals)}")
+    total_tokens = total_input_tokens + total_output_tokens
 
+    input_cost  = total_input_tokens  / 1_000_000 * INPUT_PRICE_PER_M
+    output_cost = total_output_tokens / 1_000_000 * OUTPUT_PRICE_PER_M
+    total_cost  = input_cost + output_cost
 
-# ── Main ──────────────────────────────────────────────────────────────────────
+    print(f"Samples              : {total_samples:>12,}")
+    print(f"Total API calls      : {total_samples * REPEATS:>12,}  ({total_samples:,} × {REPEATS} repeats)")
+    print()
+    print(f"Input  tokens        : {total_input_tokens:>12,}")
+    print(f"Output tokens        : {total_output_tokens:>12,}  ({MAX_GEN_TOKS} × {total_samples * REPEATS:,} calls)")
+    print(f"Total  tokens        : {total_tokens:>12,}")
+    print()
+    print(f"Input  cost          : ${input_cost:>10.2f}")
+    print(f"Output cost          : ${output_cost:>10.2f}")
+    print(f"Total  cost          : ${total_cost:>10.2f}")
+
 
 if __name__ == "__main__":
-    section_bucket_distribution()
-    section_per_query_scores()
-    section_unique_scores()
+    main()
