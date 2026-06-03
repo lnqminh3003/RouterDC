@@ -1,0 +1,1575 @@
+/home/minh.le4/RouterDC/venv/lib/python3.10/site-packages/transformers/convert_slow_tokenizer.py:561: UserWarning: The sentencepiece tokenizer that you are converting to a fast tokenizer uses the byte fallback option which is not implemented in the fast tokenizers. In practice this means that the fast version of the tokenizer can produce unknown tokens whereas the sentencepiece version would have converted these unknown tokens into a sequence of byte tokens matching the original piece of text.
+  warnings.warn(
+init_model, router_node size: ['codellama/CodeLlama-7b-Instruct-hf', 'codellama/CodeLlama-13b-Instruct-hf', 'deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct', 'Qwen/Qwen2.5-Coder-14B-Instruct', 'bigcode/starcoder2-15b-instruct-v0.1', 'Virtue-AI-HUB/VulnLLM-R-7B', 'google/codegemma-7b-it', 'google/gemma-2-9b-it', 'openai/gpt-4o-mini']
+Training start!!!
+step:0, loss:5.317351341247559                             
+step:1, loss:5.261512756347656                                     
+step:2, loss:5.1461896896362305                                    
+step:3, loss:4.936561584472656                                     
+step:4, loss:4.932641506195068                                     
+step:5, loss:4.566855430603027                                     
+step:6, loss:4.683876037597656                                     
+step:7, loss:4.7097086906433105                                    
+step:8, loss:4.668999671936035                                     
+step:9, loss:4.7904486656188965                                    
+step:10, loss:4.79355001449585                                       
+step:11, loss:4.42698860168457                                       
+step:12, loss:4.6598687171936035                                     
+step:13, loss:4.458675861358643                                      
+step:14, loss:4.546418190002441                                      
+step:15, loss:4.48372745513916                                       
+step:16, loss:4.564013481140137                                      
+step:17, loss:4.687355995178223                                      
+step:18, loss:4.571976661682129                                      
+step:19, loss:4.622250080108643                                      
+step:20, loss:4.482580184936523                                      
+step:21, loss:4.494757652282715                                      
+step:22, loss:4.263006687164307                                      
+step:23, loss:4.6892619132995605                                     
+step:24, loss:4.213540077209473                                      
+step:25, loss:4.649728298187256                                      
+step:26, loss:4.543463230133057                                      
+step:27, loss:4.511338233947754                                      
+step:28, loss:4.422918319702148                                      
+step:29, loss:4.479270935058594                                      
+step:30, loss:4.517786979675293                                      
+step:31, loss:4.451572418212891                                      
+step:32, loss:4.2782206535339355                                     
+step:33, loss:4.565293312072754                                      
+step:34, loss:4.478171348571777                                      
+step:35, loss:4.422855854034424                                      
+step:36, loss:4.376689910888672                                      
+step:37, loss:4.3710174560546875                                     
+step:38, loss:4.579862594604492                                      
+step:39, loss:4.395082473754883                                      
+step:40, loss:4.5550994873046875                                     
+step:41, loss:4.268542766571045                                      
+step:42, loss:4.480196952819824                                      
+step:43, loss:4.425961017608643                                      
+step:44, loss:4.3502397537231445                                     
+step:45, loss:4.267773151397705                                      
+step:46, loss:4.243090629577637                                      
+step:47, loss:4.27789831161499                                       
+step:48, loss:4.364412307739258                                      
+  5%|▍         | 49/1000 [00:47<15:12,  1.04it/s, step=48, loss=4.36]validation start
+acc_./datasets/primevul/balance_9models/gen_cluster/train.json: 0.7316835225302147
+acc 0.04437834622248662
+Routing distribution (8405 queries):
+  codellama/CodeLlama-7b-Instruct-hf                      0  (  0.0%)
+  codellama/CodeLlama-13b-Instruct-hf                     0  (  0.0%)
+  deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct             0  (  0.0%)
+  Qwen/Qwen2.5-Coder-14B-Instruct                         0  (  0.0%)
+  bigcode/starcoder2-15b-instruct-v0.1                    0  (  0.0%)
+  Virtue-AI-HUB/VulnLLM-R-7B                           5006  ( 59.6%)
+  google/codegemma-7b-it                                  1  (  0.0%)
+  google/gemma-2-9b-it                                 3398  ( 40.4%)
+  openai/gpt-4o-mini                                      0  (  0.0%)
+test start
+acc_./datasets/primevul/balance_9models/gen/test.json: 0.7260061068697635
+acc 0.04718290313627533
+Routing distribution (3603 queries):
+  codellama/CodeLlama-7b-Instruct-hf                      0  (  0.0%)
+  codellama/CodeLlama-13b-Instruct-hf                     0  (  0.0%)
+  deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct             0  (  0.0%)
+  Qwen/Qwen2.5-Coder-14B-Instruct                         0  (  0.0%)
+  bigcode/starcoder2-15b-instruct-v0.1                    0  (  0.0%)
+  Virtue-AI-HUB/VulnLLM-R-7B                           2103  ( 58.4%)
+  google/codegemma-7b-it                                  0  (  0.0%)
+  google/gemma-2-9b-it                                 1500  ( 41.6%)
+  openai/gpt-4o-mini                                      0  (  0.0%)
+average testing 0.7260061068697635
+average training 0.7316835225302147
+step:49, loss:4.347916603088379                                      
+step:50, loss:4.5173659324646                                          
+step:51, loss:4.259828567504883                                        
+step:52, loss:4.441671848297119                                        
+step:53, loss:4.289816856384277                                        
+step:54, loss:4.312028884887695                                        
+step:55, loss:4.303516864776611                                        
+step:56, loss:4.102823734283447                                       
+step:57, loss:4.390193462371826                                       
+step:58, loss:4.3087263107299805                                     
+step:59, loss:4.489574432373047                                      
+step:60, loss:4.210255146026611                                      
+step:61, loss:4.42358922958374                                       
+step:62, loss:4.337322235107422                                      
+step:63, loss:4.617030143737793                                      
+step:64, loss:4.40767240524292                                       
+step:65, loss:4.323842525482178                                      
+step:66, loss:4.3134236335754395                                     
+step:67, loss:4.190367698669434                                      
+step:68, loss:4.1668701171875                                        
+step:69, loss:4.289730072021484                                      
+step:70, loss:4.182982444763184                                      
+step:71, loss:4.439323902130127                                      
+step:72, loss:4.303570747375488                                      
+step:73, loss:4.2661895751953125                                     
+step:74, loss:4.397635459899902                                      
+step:75, loss:4.174577236175537                                      
+step:76, loss:4.294170379638672                                      
+step:77, loss:4.0603861808776855                                     
+step:78, loss:4.288572788238525                                      
+step:79, loss:4.346518039703369                                      
+step:80, loss:4.292459487915039                                      
+step:81, loss:4.413262367248535                                      
+step:82, loss:4.356499195098877                                      
+step:83, loss:4.1957550048828125                                     
+step:84, loss:4.082911014556885                                      
+step:85, loss:4.283275604248047                                      
+step:86, loss:3.9300873279571533                                     
+step:87, loss:4.32114315032959                                       
+step:88, loss:4.195652484893799                                      
+step:89, loss:4.449925899505615                                      
+step:90, loss:4.151673793792725                                      
+step:91, loss:4.295222759246826                                      
+step:92, loss:4.332815170288086                                      
+step:93, loss:4.32361364364624                                       
+step:94, loss:4.299788951873779                                      
+step:95, loss:4.081058025360107                                      
+step:96, loss:4.114465236663818                                      
+step:97, loss:4.002077579498291                                      
+step:98, loss:4.275026798248291                                      
+ 10%|▉         | 99/1000 [03:03<14:12,  1.06it/s, step=98, loss=4.28]validation start
+acc_./datasets/primevul/balance_9models/gen_cluster/train.json: 0.727233791521516
+acc 0.05734681737061273
+Routing distribution (8405 queries):
+  codellama/CodeLlama-7b-Instruct-hf                      0  (  0.0%)
+  codellama/CodeLlama-13b-Instruct-hf                     0  (  0.0%)
+  deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct             0  (  0.0%)
+  Qwen/Qwen2.5-Coder-14B-Instruct                         0  (  0.0%)
+  bigcode/starcoder2-15b-instruct-v0.1                    0  (  0.0%)
+  Virtue-AI-HUB/VulnLLM-R-7B                           3394  ( 40.4%)
+  google/codegemma-7b-it                               1551  ( 18.5%)
+  google/gemma-2-9b-it                                 3460  ( 41.2%)
+  openai/gpt-4o-mini                                      0  (  0.0%)
+test start
+acc_./datasets/primevul/balance_9models/gen/test.json: 0.7217874002893402
+acc 0.055231751318345824
+Routing distribution (3603 queries):
+  codellama/CodeLlama-7b-Instruct-hf                      0  (  0.0%)
+  codellama/CodeLlama-13b-Instruct-hf                     0  (  0.0%)
+  deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct             0  (  0.0%)
+  Qwen/Qwen2.5-Coder-14B-Instruct                         0  (  0.0%)
+  bigcode/starcoder2-15b-instruct-v0.1                    0  (  0.0%)
+  Virtue-AI-HUB/VulnLLM-R-7B                           1437  ( 39.9%)
+  google/codegemma-7b-it                                642  ( 17.8%)
+  google/gemma-2-9b-it                                 1524  ( 42.3%)
+  openai/gpt-4o-mini                                      0  (  0.0%)
+average testing 0.7217874002893402
+average training 0.727233791521516
+step:99, loss:4.20911979675293                                       
+step:100, loss:4.258953094482422                                         
+step:101, loss:4.072579860687256                                         
+step:102, loss:4.3182902336120605                                        
+step:103, loss:4.12350606918335                                          
+step:104, loss:4.308905601501465                                         
+step:105, loss:3.929259777069092                                         
+step:106, loss:3.846043348312378                                         
+step:107, loss:4.111553192138672                                       
+step:108, loss:3.9761760234832764                                      
+step:109, loss:3.9501709938049316                                      
+step:110, loss:4.1236958503723145                                      
+step:111, loss:4.207865238189697                                       
+step:112, loss:3.9231576919555664                                      
+step:113, loss:4.374494552612305                                       
+step:114, loss:4.212979793548584                                       
+step:115, loss:4.561704635620117                                       
+step:116, loss:4.175928115844727                                       
+step:117, loss:4.284342288970947                                       
+step:118, loss:4.1759867668151855                                      
+step:119, loss:3.7919869422912598                                      
+step:120, loss:4.1936564445495605                                      
+step:121, loss:4.264426231384277                                       
+step:122, loss:4.144380569458008                                       
+step:123, loss:4.211245536804199                                       
+step:124, loss:4.165528297424316                                       
+step:125, loss:4.269792556762695                                       
+step:126, loss:4.232394695281982                                       
+step:127, loss:4.43407678604126                                        
+step:128, loss:4.138949394226074                                       
+step:129, loss:4.178543567657471                                       
+step:130, loss:4.195104122161865                                       
+step:131, loss:4.300115585327148                                      
+ 13%|█▎        | 132/1000 [04:58<11:00,  1.31it/s, step=131, loss=4.3]step:132, avg_loss_per_epoch:4.357167086581401
+step:132, loss:4.220414161682129                                       
+step:133, loss:4.190371513366699                                       
+step:134, loss:4.07676887512207                                        
+step:135, loss:4.338742733001709                                       
+step:136, loss:3.9407265186309814                                      
+step:137, loss:4.119907855987549                                       
+step:138, loss:4.2880730628967285                                      
+step:139, loss:3.9785382747650146                                      
+step:140, loss:4.20836877822876                                        
+step:141, loss:4.341840744018555                                       
+step:142, loss:4.179905414581299                                       
+step:143, loss:3.9287548065185547                                      
+step:144, loss:4.2158427238464355                                      
+step:145, loss:4.178544521331787                                       
+step:146, loss:4.12059211730957                                        
+step:147, loss:4.227020263671875                                       
+step:148, loss:4.131254196166992                                       
+ 15%|█▍        | 149/1000 [05:14<13:31,  1.05it/s, step=148, loss=4.13]validation start
+acc_./datasets/primevul/balance_9models/gen_cluster/train.json: 0.7270196298557261
+acc 0.05698988697204045
+Routing distribution (8405 queries):
+  codellama/CodeLlama-7b-Instruct-hf                      0  (  0.0%)
+  codellama/CodeLlama-13b-Instruct-hf                     0  (  0.0%)
+  deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct             0  (  0.0%)
+  Qwen/Qwen2.5-Coder-14B-Instruct                         0  (  0.0%)
+  bigcode/starcoder2-15b-instruct-v0.1                    0  (  0.0%)
+  Virtue-AI-HUB/VulnLLM-R-7B                           3444  ( 41.0%)
+  google/codegemma-7b-it                               1557  ( 18.5%)
+  google/gemma-2-9b-it                                 3404  ( 40.5%)
+  openai/gpt-4o-mini                                      0  (  0.0%)
+test start
+acc_./datasets/primevul/balance_9models/gen/test.json: 0.7231196224308993
+acc 0.055231751318345824
+Routing distribution (3603 queries):
+  codellama/CodeLlama-7b-Instruct-hf                      0  (  0.0%)
+  codellama/CodeLlama-13b-Instruct-hf                     0  (  0.0%)
+  deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct             0  (  0.0%)
+  Qwen/Qwen2.5-Coder-14B-Instruct                         0  (  0.0%)
+  bigcode/starcoder2-15b-instruct-v0.1                    0  (  0.0%)
+  Virtue-AI-HUB/VulnLLM-R-7B                           1457  ( 40.4%)
+  google/codegemma-7b-it                                646  ( 17.9%)
+  google/gemma-2-9b-it                                 1500  ( 41.6%)
+  openai/gpt-4o-mini                                      0  (  0.0%)
+average testing 0.7231196224308993
+average training 0.7270196298557261
+step:149, loss:4.238744735717773                                       
+step:150, loss:4.027393817901611                                         
+step:151, loss:3.959141254425049                                         
+step:152, loss:4.060956954956055                                         
+step:153, loss:4.659350395202637                                         
+step:154, loss:3.8400583267211914                                        
+step:155, loss:4.311456680297852                                         
+step:156, loss:4.236427307128906                                         
+step:157, loss:3.9704535007476807                                      
+step:158, loss:3.980076313018799                                       
+step:159, loss:4.103961944580078                                       
+step:160, loss:4.422774314880371                                       
+step:161, loss:4.176344871520996                                       
+step:162, loss:4.318734169006348                                       
+step:163, loss:4.063022613525391                                       
+step:164, loss:4.100793838500977                                       
+step:165, loss:4.056418418884277                                       
+step:166, loss:4.157295227050781                                       
+step:167, loss:3.8226983547210693                                      
+step:168, loss:4.038728713989258                                       
+step:169, loss:4.260436534881592                                       
+step:170, loss:4.559208393096924                                       
+step:171, loss:3.9785189628601074                                      
+step:172, loss:4.127950668334961                                       
+step:173, loss:4.145308494567871                                       
+step:174, loss:4.080801963806152                                       
+step:175, loss:4.460939884185791                                       
+step:176, loss:4.148881435394287                                       
+step:177, loss:4.070807456970215                                       
+step:178, loss:4.137848377227783                                       
+step:179, loss:4.02533483505249                                        
+step:180, loss:4.541040420532227                                       
+step:181, loss:4.2133283615112305                                      
+step:182, loss:3.853149890899658                                       
+step:183, loss:4.206514835357666                                       
+step:184, loss:4.167104721069336                                       
+step:185, loss:4.056244850158691                                       
+step:186, loss:4.134946823120117                                       
+step:187, loss:4.093967914581299                                       
+step:188, loss:4.133848190307617                                       
+step:189, loss:4.418162822723389                                       
+step:190, loss:4.032286167144775                                       
+step:191, loss:4.235442638397217                                       
+step:192, loss:4.096615314483643                                       
+step:193, loss:4.0642991065979                                         
+step:194, loss:3.9622702598571777                                      
+step:195, loss:4.166463375091553                                       
+step:196, loss:4.109012603759766                                       
+step:197, loss:4.247235298156738                                       
+step:198, loss:4.211745262145996                                       
+ 20%|█▉        | 199/1000 [07:25<12:30,  1.07it/s, step=198, loss=4.21]validation start
+acc_./datasets/primevul/balance_9models/gen_cluster/train.json: 0.7315407498261532
+acc 0.13111243307555026
+Routing distribution (8405 queries):
+  codellama/CodeLlama-7b-Instruct-hf                      0  (  0.0%)
+  codellama/CodeLlama-13b-Instruct-hf                   904  ( 10.8%)
+  deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct             0  (  0.0%)
+  Qwen/Qwen2.5-Coder-14B-Instruct                         0  (  0.0%)
+  bigcode/starcoder2-15b-instruct-v0.1                    0  (  0.0%)
+  Virtue-AI-HUB/VulnLLM-R-7B                           4048  ( 48.2%)
+  google/codegemma-7b-it                                 18  (  0.2%)
+  google/gemma-2-9b-it                                 3435  ( 40.9%)
+  openai/gpt-4o-mini                                      0  (  0.0%)
+test start
+acc_./datasets/primevul/balance_9models/gen/test.json: 0.7245073583170404
+acc 0.1301693033583125
+Routing distribution (3603 queries):
+  codellama/CodeLlama-7b-Instruct-hf                      0  (  0.0%)
+  codellama/CodeLlama-13b-Instruct-hf                   383  ( 10.6%)
+  deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct             0  (  0.0%)
+  Qwen/Qwen2.5-Coder-14B-Instruct                         0  (  0.0%)
+  bigcode/starcoder2-15b-instruct-v0.1                    0  (  0.0%)
+  Virtue-AI-HUB/VulnLLM-R-7B                           1703  ( 47.3%)
+  google/codegemma-7b-it                                  6  (  0.2%)
+  google/gemma-2-9b-it                                 1511  ( 41.9%)
+  openai/gpt-4o-mini                                      0  (  0.0%)
+average testing 0.7245073583170404
+average training 0.7315407498261532
+step:199, loss:4.323904991149902                                       
+step:200, loss:3.9322776794433594                                        
+step:201, loss:4.333074569702148                                         
+step:202, loss:4.273489475250244                                         
+step:203, loss:4.021149158477783                                         
+step:204, loss:3.970127582550049                                         
+step:205, loss:4.016550064086914                                         
+step:206, loss:4.253703594207764                                         
+step:207, loss:4.231734752655029                                       
+step:208, loss:4.189348220825195                                       
+step:209, loss:4.08509635925293                                        
+step:210, loss:4.106230735778809                                       
+step:211, loss:4.209224224090576                                       
+step:212, loss:4.259393215179443                                       
+step:213, loss:4.087310314178467                                       
+step:214, loss:4.115542411804199                                       
+step:215, loss:4.172311305999756                                       
+step:216, loss:4.165225028991699                                       
+step:217, loss:3.9378418922424316                                      
+step:218, loss:4.22091007232666                                        
+step:219, loss:3.9691691398620605                                      
+step:220, loss:4.218579292297363                                       
+step:221, loss:4.029637813568115                                       
+step:222, loss:4.044195652008057                                       
+step:223, loss:4.3684587478637695                                      
+step:224, loss:4.0908122062683105                                      
+step:225, loss:4.263474941253662                                       
+step:226, loss:4.1453423500061035                                      
+step:227, loss:3.939868450164795                                       
+step:228, loss:4.198402404785156                                       
+step:229, loss:4.170994758605957                                       
+step:230, loss:4.203903675079346                                       
+step:231, loss:4.313329696655273                                       
+step:232, loss:3.8987467288970947                                      
+step:233, loss:4.299525260925293                                      
+step:234, loss:4.046154975891113                                       
+step:235, loss:4.203004837036133                                       
+step:236, loss:4.003096580505371                                      
+step:237, loss:4.225515365600586                                       
+step:238, loss:4.334207057952881                                       
+step:239, loss:4.36755895614624                                        
+step:240, loss:4.31768798828125                                        
+step:241, loss:4.234366416931152                                       
+step:242, loss:4.292133331298828                                       
+step:243, loss:4.129295825958252                                       
+step:244, loss:4.301417350769043                                       
+step:245, loss:4.12296724319458                                        
+step:246, loss:4.241203308105469                                       
+step:247, loss:4.454281806945801                                       
+step:248, loss:4.121287822723389                                       
+ 25%|██▍       | 249/1000 [09:36<11:43,  1.07it/s, step=248, loss=4.12]validation start
+acc_./datasets/primevul/balance_9models/gen_cluster/train.json: 0.7380130871075523
+acc 0.16121356335514575
+Routing distribution (8405 queries):
+  codellama/CodeLlama-7b-Instruct-hf                      0  (  0.0%)
+  codellama/CodeLlama-13b-Instruct-hf                  1219  ( 14.5%)
+  deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct             0  (  0.0%)
+  Qwen/Qwen2.5-Coder-14B-Instruct                         0  (  0.0%)
+  bigcode/starcoder2-15b-instruct-v0.1                    0  (  0.0%)
+  Virtue-AI-HUB/VulnLLM-R-7B                           3353  ( 39.9%)
+  google/codegemma-7b-it                                429  (  5.1%)
+  google/gemma-2-9b-it                                 3404  ( 40.5%)
+  openai/gpt-4o-mini                                      0  (  0.0%)
+test start
+acc_./datasets/primevul/balance_9models/gen/test.json: 0.727615878941316
+acc 0.15570358034970858
+Routing distribution (3603 queries):
+  codellama/CodeLlama-7b-Instruct-hf                      0  (  0.0%)
+  codellama/CodeLlama-13b-Instruct-hf                   516  ( 14.3%)
+  deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct             0  (  0.0%)
+  Qwen/Qwen2.5-Coder-14B-Instruct                         0  (  0.0%)
+  bigcode/starcoder2-15b-instruct-v0.1                    0  (  0.0%)
+  Virtue-AI-HUB/VulnLLM-R-7B                           1439  ( 39.9%)
+  google/codegemma-7b-it                                148  (  4.1%)
+  google/gemma-2-9b-it                                 1500  ( 41.6%)
+  openai/gpt-4o-mini                                      0  (  0.0%)
+average testing 0.727615878941316
+average training 0.7380130871075523
+step:249, loss:4.328263282775879                                       
+step:250, loss:4.26217794418335                                          
+step:251, loss:4.141384124755859                                         
+step:252, loss:4.0926289558410645                                        
+step:253, loss:4.030132293701172                                         
+step:254, loss:4.084224700927734                                         
+step:255, loss:4.161503314971924                                         
+step:256, loss:4.169711112976074                                         
+step:257, loss:4.217381954193115                                       
+step:258, loss:4.144416809082031                                       
+step:259, loss:3.9217355251312256                                      
+step:260, loss:4.338241100311279                                       
+step:261, loss:4.416744232177734                                       
+step:262, loss:4.228727340698242                                       
+step:263, loss:3.883908271789551                                       
+ 26%|██▋       | 264/1000 [11:21<11:36,  1.06it/s, step=263, loss=3.88]step:264, avg_loss_per_epoch:4.160837291352172
+step:264, loss:4.059285640716553                                       
+step:265, loss:3.9059576988220215                                      
+step:266, loss:4.006168842315674                                       
+step:267, loss:4.455445289611816                                       
+step:268, loss:4.371726989746094                                       
+step:269, loss:3.9691100120544434                                      
+step:270, loss:3.9505271911621094                                      
+step:271, loss:3.998741865158081                                       
+step:272, loss:4.26809549331665                                        
+step:273, loss:4.115439414978027                                       
+step:274, loss:4.2533979415893555                                      
+step:275, loss:4.020280838012695                                       
+step:276, loss:3.980548858642578                                       
+step:277, loss:4.238238334655762                                       
+step:278, loss:3.950972318649292                                       
+step:279, loss:4.098349571228027                                       
+step:280, loss:4.306571006774902                                       
+step:281, loss:4.105691909790039                                       
+step:282, loss:4.109635353088379                                       
+step:283, loss:3.938638210296631                                       
+step:284, loss:4.250635147094727                                       
+step:285, loss:4.143917083740234                                       
+step:286, loss:4.258803367614746                                       
+step:287, loss:3.917600631713867                                       
+step:288, loss:4.163896560668945                                       
+step:289, loss:4.304332733154297                                       
+step:290, loss:4.237253665924072                                       
+step:291, loss:4.23921012878418                                        
+step:292, loss:4.249696731567383                                       
+step:293, loss:4.4150495529174805                                      
+step:294, loss:3.9488072395324707                                      
+step:295, loss:4.078505039215088                                       
+step:296, loss:4.223847389221191                                       
+step:297, loss:4.046257972717285                                       
+step:298, loss:4.0177483558654785                                      
+ 30%|██▉       | 299/1000 [11:54<11:10,  1.05it/s, step=298, loss=4.02]validation start
+acc_./datasets/primevul/balance_9models/gen_cluster/train.json: 0.7284235573609197
+acc 0.20939916716240334
+Routing distribution (8405 queries):
+  codellama/CodeLlama-7b-Instruct-hf                      0  (  0.0%)
+  codellama/CodeLlama-13b-Instruct-hf                  1932  ( 23.0%)
+  deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct             0  (  0.0%)
+  Qwen/Qwen2.5-Coder-14B-Instruct                         0  (  0.0%)
+  bigcode/starcoder2-15b-instruct-v0.1                    0  (  0.0%)
+  Virtue-AI-HUB/VulnLLM-R-7B                           3049  ( 36.3%)
+  google/codegemma-7b-it                                 20  (  0.2%)
+  google/gemma-2-9b-it                                 3404  ( 40.5%)
+  openai/gpt-4o-mini                                      0  (  0.0%)
+test start
+acc_./datasets/primevul/balance_9models/gen/test.json: 0.7228420770006182
+acc 0.20982514571190675
+Routing distribution (3603 queries):
+  codellama/CodeLlama-7b-Instruct-hf                      0  (  0.0%)
+  codellama/CodeLlama-13b-Instruct-hf                   833  ( 23.1%)
+  deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct             0  (  0.0%)
+  Qwen/Qwen2.5-Coder-14B-Instruct                         0  (  0.0%)
+  bigcode/starcoder2-15b-instruct-v0.1                    0  (  0.0%)
+  Virtue-AI-HUB/VulnLLM-R-7B                           1263  ( 35.1%)
+  google/codegemma-7b-it                                  7  (  0.2%)
+  google/gemma-2-9b-it                                 1500  ( 41.6%)
+  openai/gpt-4o-mini                                      0  (  0.0%)
+average testing 0.7228420770006182
+average training 0.7284235573609197
+step:299, loss:4.093891143798828                                       
+step:300, loss:4.16657829284668                                          
+step:301, loss:4.289944171905518                                         
+step:302, loss:3.959280490875244                                         
+step:303, loss:4.233488082885742                                         
+step:304, loss:4.089438438415527                                         
+step:305, loss:4.372009754180908                                         
+step:306, loss:3.842780590057373                                       
+step:307, loss:3.9674887657165527                                      
+step:308, loss:3.983281373977661                                       
+step:309, loss:4.500558853149414                                       
+step:310, loss:3.952599048614502                                       
+step:311, loss:4.320314884185791                                       
+step:312, loss:3.9863059520721436                                      
+step:313, loss:4.198716640472412                                       
+step:314, loss:4.154543399810791                                       
+step:315, loss:4.270754814147949                                       
+step:316, loss:4.247751235961914                                       
+step:317, loss:4.257954120635986                                       
+step:318, loss:4.039371967315674                                       
+step:319, loss:4.0692548751831055                                      
+step:320, loss:4.329934120178223                                       
+step:321, loss:4.22953987121582                                        
+step:322, loss:4.271180152893066                                       
+step:323, loss:4.062438488006592                                       
+step:324, loss:4.264328956604004                                       
+step:325, loss:4.184119701385498                                       
+step:326, loss:4.243852138519287                                       
+step:327, loss:3.898810386657715                                       
+step:328, loss:4.010143756866455                                       
+step:329, loss:4.122560024261475                                       
+step:330, loss:3.9686574935913086                                      
+step:331, loss:4.118067264556885                                       
+step:332, loss:4.0729193687438965                                      
+step:333, loss:4.190700531005859                                       
+step:334, loss:4.214763641357422                                       
+step:335, loss:4.099985599517822                                       
+step:336, loss:4.2574567794799805                                      
+step:337, loss:4.097520351409912                                       
+step:338, loss:4.18959379196167                                        
+step:339, loss:4.083929538726807                                       
+step:340, loss:3.901961326599121                                       
+step:341, loss:3.8992528915405273                                     
+step:342, loss:4.30250883102417                                       
+step:343, loss:3.909703493118286                                       
+step:344, loss:3.8942227363586426                                      
+step:345, loss:4.307518005371094                                       
+step:346, loss:4.135211944580078                                       
+step:347, loss:4.238857269287109                                       
+step:348, loss:4.109175682067871                                       
+ 35%|███▍      | 349/1000 [14:04<10:20,  1.05it/s, step=348, loss=4.11]validation start
+acc_./datasets/primevul/balance_9models/gen_cluster/train.json: 0.728447350315364
+acc 0.2084473527662106
+Routing distribution (8405 queries):
+  codellama/CodeLlama-7b-Instruct-hf                      0  (  0.0%)
+  codellama/CodeLlama-13b-Instruct-hf                  1723  ( 20.5%)
+  deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct             0  (  0.0%)
+  Qwen/Qwen2.5-Coder-14B-Instruct                         0  (  0.0%)
+  bigcode/starcoder2-15b-instruct-v0.1                    0  (  0.0%)
+  Virtue-AI-HUB/VulnLLM-R-7B                           1729  ( 20.6%)
+  google/codegemma-7b-it                               1540  ( 18.3%)
+  google/gemma-2-9b-it                                 3413  ( 40.6%)
+  openai/gpt-4o-mini                                      0  (  0.0%)
+test start
+acc_./datasets/primevul/balance_9models/gen/test.json: 0.7193449890153659
+acc 0.2067721343325007
+Routing distribution (3603 queries):
+  codellama/CodeLlama-7b-Instruct-hf                      0  (  0.0%)
+  codellama/CodeLlama-13b-Instruct-hf                   745  ( 20.7%)
+  deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct             0  (  0.0%)
+  Qwen/Qwen2.5-Coder-14B-Instruct                         0  (  0.0%)
+  bigcode/starcoder2-15b-instruct-v0.1                    0  (  0.0%)
+  Virtue-AI-HUB/VulnLLM-R-7B                            710  ( 19.7%)
+  google/codegemma-7b-it                                642  ( 17.8%)
+  google/gemma-2-9b-it                                 1506  ( 41.8%)
+  openai/gpt-4o-mini                                      0  (  0.0%)
+average testing 0.7193449890153659
+average training 0.728447350315364
+step:349, loss:4.021743297576904                                       
+step:350, loss:3.93820858001709                                          
+step:351, loss:4.172611236572266                                         
+step:352, loss:4.16088342666626                                          
+step:353, loss:4.24193811416626                                          
+step:354, loss:4.035079479217529                                         
+step:355, loss:4.181489944458008                                         
+step:356, loss:3.8942439556121826                                      
+step:357, loss:4.335402488708496                                       
+step:358, loss:4.286623954772949                                       
+step:359, loss:4.271636486053467                                       
+step:360, loss:4.274535655975342                                       
+step:361, loss:4.047545433044434                                       
+step:362, loss:3.972461700439453                                       
+step:363, loss:4.136458396911621                                       
+step:364, loss:4.234267234802246                                       
+step:365, loss:4.144589424133301                                       
+step:366, loss:4.224084854125977                                       
+step:367, loss:4.421260833740234                                       
+step:368, loss:4.192359924316406                                       
+step:369, loss:4.101490497589111                                       
+step:370, loss:4.5930986404418945                                      
+step:371, loss:3.9183177947998047                                      
+step:372, loss:4.3858537673950195                                      
+step:373, loss:4.046073913574219                                       
+step:374, loss:4.376591205596924                                       
+step:375, loss:4.1483917236328125                                      
+step:376, loss:3.9306693077087402                                      
+step:377, loss:4.05927038192749                                        
+step:378, loss:4.245945930480957                                       
+step:379, loss:4.192046165466309                                       
+step:380, loss:4.2498064041137695                                      
+step:381, loss:3.8867347240448                                         
+step:382, loss:4.192015647888184                                       
+step:383, loss:4.25954008102417                                        
+step:384, loss:4.414929389953613                                       
+step:385, loss:3.888434648513794                                       
+step:386, loss:4.123457908630371                                       
+step:387, loss:3.9966750144958496                                      
+step:388, loss:4.208032608032227                                       
+step:389, loss:4.100433826446533                                       
+step:390, loss:4.244317054748535                                       
+step:391, loss:4.082249641418457                                       
+step:392, loss:4.193134307861328                                       
+step:393, loss:4.038330078125                                          
+step:394, loss:4.282419681549072                                       
+step:395, loss:4.303746223449707                                       
+ 40%|███▉      | 396/1000 [16:12<07:39,  1.31it/s, step=395, loss=4.3]step:396, avg_loss_per_epoch:4.142002765285621
+step:396, loss:4.177801132202148                                       
+step:397, loss:4.000450611114502                                       
+step:398, loss:4.288651943206787                                       
+ 40%|███▉      | 399/1000 [16:15<09:11,  1.09it/s, step=398, loss=4.29]validation start
+acc_./datasets/primevul/balance_9models/gen_cluster/train.json: 0.7285901280118907
+acc 0.11183819155264724
+Routing distribution (8405 queries):
+  codellama/CodeLlama-7b-Instruct-hf                      0  (  0.0%)
+  codellama/CodeLlama-13b-Instruct-hf                   481  (  5.7%)
+  deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct          1022  ( 12.2%)
+  Qwen/Qwen2.5-Coder-14B-Instruct                         0  (  0.0%)
+  bigcode/starcoder2-15b-instruct-v0.1                    0  (  0.0%)
+  Virtue-AI-HUB/VulnLLM-R-7B                           1938  ( 23.1%)
+  google/codegemma-7b-it                               1460  ( 17.4%)
+  google/gemma-2-9b-it                                 3504  ( 41.7%)
+  openai/gpt-4o-mini                                      0  (  0.0%)
+test start
+acc_./datasets/primevul/balance_9models/gen/test.json: 0.7180127634328503
+acc 0.10935331668054399
+Routing distribution (3603 queries):
+  codellama/CodeLlama-7b-Instruct-hf                      0  (  0.0%)
+  codellama/CodeLlama-13b-Instruct-hf                   227  (  6.3%)
+  deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct           422  ( 11.7%)
+  Qwen/Qwen2.5-Coder-14B-Instruct                         0  (  0.0%)
+  bigcode/starcoder2-15b-instruct-v0.1                    0  (  0.0%)
+  Virtue-AI-HUB/VulnLLM-R-7B                            797  ( 22.1%)
+  google/codegemma-7b-it                                619  ( 17.2%)
+  google/gemma-2-9b-it                                 1538  ( 42.7%)
+  openai/gpt-4o-mini                                      0  (  0.0%)
+average testing 0.7180127634328503
+average training 0.7285901280118907
+step:399, loss:4.4106059074401855                                      
+step:400, loss:4.375838279724121                                         
+step:401, loss:4.334529876708984                                         
+step:402, loss:3.9254510402679443                                        
+step:403, loss:4.039808750152588                                         
+step:404, loss:4.227295875549316                                         
+step:405, loss:4.008342266082764                                         
+step:406, loss:4.187934875488281                                       
+step:407, loss:4.254757881164551                                       
+step:408, loss:4.15816068649292                                        
+step:409, loss:4.08274507522583                                        
+step:410, loss:4.383768558502197                                       
+step:411, loss:3.8864827156066895                                      
+step:412, loss:3.9927759170532227                                      
+step:413, loss:4.155204772949219                                       
+step:414, loss:4.277482032775879                                       
+step:415, loss:4.2458343505859375                                      
+step:416, loss:4.125094890594482                                       
+step:417, loss:3.9298558235168457                                      
+step:418, loss:4.317489147186279                                       
+step:419, loss:4.00792121887207                                        
+step:420, loss:4.053306579589844                                       
+step:421, loss:3.993992567062378                                       
+step:422, loss:4.324470520019531                                       
+step:423, loss:4.176413059234619                                       
+step:424, loss:4.205259323120117                                       
+step:425, loss:3.8855578899383545                                      
+step:426, loss:3.8731582164764404                                      
+step:427, loss:3.8567092418670654                                      
+step:428, loss:4.304066181182861                                       
+step:429, loss:4.29355001449585                                        
+step:430, loss:4.222626686096191                                       
+step:431, loss:4.34419059753418                                        
+step:432, loss:4.022311210632324                                       
+step:433, loss:3.9636754989624023                                      
+step:434, loss:4.0085039138793945                                      
+step:435, loss:3.9811646938323975                                      
+step:436, loss:4.295868396759033                                       
+step:437, loss:4.291489124298096                                       
+step:438, loss:4.063131332397461                                       
+step:439, loss:3.9634718894958496                                      
+step:440, loss:4.213572978973389                                       
+step:441, loss:4.253556728363037                                       
+step:442, loss:4.244884490966797                                       
+step:443, loss:4.145994186401367                                       
+step:444, loss:4.421710014343262                                       
+step:445, loss:4.132859706878662                                       
+step:446, loss:4.209263324737549                                       
+step:447, loss:4.044681072235107                                       
+step:448, loss:3.9744131565093994                                      
+ 45%|████▍     | 449/1000 [18:26<08:49,  1.04it/s, step=448, loss=3.97]validation start
+acc_./datasets/primevul/balance_9models/gen_cluster/train.json: 0.7448423563760352
+acc 0.21546698393813207
+Routing distribution (8405 queries):
+  codellama/CodeLlama-7b-Instruct-hf                      0  (  0.0%)
+  codellama/CodeLlama-13b-Instruct-hf                  1913  ( 22.8%)
+  deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct           102  (  1.2%)
+  Qwen/Qwen2.5-Coder-14B-Instruct                         0  (  0.0%)
+  bigcode/starcoder2-15b-instruct-v0.1                    0  (  0.0%)
+  Virtue-AI-HUB/VulnLLM-R-7B                           2640  ( 31.4%)
+  google/codegemma-7b-it                                345  (  4.1%)
+  google/gemma-2-9b-it                                 3405  ( 40.5%)
+  openai/gpt-4o-mini                                      0  (  0.0%)
+test start
+acc_./datasets/primevul/balance_9models/gen/test.json: 0.7276158755003596
+acc 0.21176797113516513
+Routing distribution (3603 queries):
+  codellama/CodeLlama-7b-Instruct-hf                      0  (  0.0%)
+  codellama/CodeLlama-13b-Instruct-hf                   838  ( 23.3%)
+  deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct            34  (  0.9%)
+  Qwen/Qwen2.5-Coder-14B-Instruct                         0  (  0.0%)
+  bigcode/starcoder2-15b-instruct-v0.1                    0  (  0.0%)
+  Virtue-AI-HUB/VulnLLM-R-7B                           1133  ( 31.4%)
+  google/codegemma-7b-it                                 98  (  2.7%)
+  google/gemma-2-9b-it                                 1500  ( 41.6%)
+  openai/gpt-4o-mini                                      0  (  0.0%)
+average testing 0.7276158755003596
+average training 0.7448423563760352
+step:449, loss:4.00624418258667                                        
+step:450, loss:3.8810982704162598                                        
+step:451, loss:4.3760223388671875                                        
+step:452, loss:3.988687515258789                                         
+step:453, loss:3.747851610183716                                         
+step:454, loss:4.532159805297852                                         
+step:455, loss:4.057338714599609                                         
+step:456, loss:4.208963394165039                                       
+step:457, loss:4.02264404296875                                        
+step:458, loss:4.068973064422607                                       
+step:459, loss:4.18351936340332                                        
+step:460, loss:4.320570945739746                                       
+step:461, loss:4.159063816070557                                       
+step:462, loss:3.990489959716797                                       
+step:463, loss:4.010456562042236                                       
+step:464, loss:3.9984030723571777                                      
+step:465, loss:3.8305468559265137                                      
+step:466, loss:4.086706638336182                                       
+step:467, loss:3.9867067337036133                                      
+step:468, loss:4.147520542144775                                       
+step:469, loss:4.13140869140625                                        
+step:470, loss:3.867290496826172                                       
+step:471, loss:4.360480308532715                                       
+step:472, loss:4.2809062004089355                                      
+step:473, loss:3.9852206707000732                                      
+step:474, loss:4.331191539764404                                       
+step:475, loss:4.004610061645508                                       
+step:476, loss:4.412843704223633                                       
+step:477, loss:3.9901580810546875                                      
+step:478, loss:3.979326009750366                                       
+step:479, loss:4.136692523956299                                       
+step:480, loss:4.0804219245910645                                      
+step:481, loss:4.059743881225586                                       
+step:482, loss:3.927825450897217                                       
+step:483, loss:4.1812663078308105                                      
+step:484, loss:4.034146785736084                                       
+step:485, loss:4.077410697937012                                       
+step:486, loss:4.291949272155762                                       
+step:487, loss:3.9810218811035156                                      
+step:488, loss:4.074901103973389                                       
+step:489, loss:4.444997787475586                                       
+step:490, loss:4.290488243103027                                       
+step:491, loss:4.055307388305664                                       
+step:492, loss:4.099375247955322                                       
+step:493, loss:3.8189992904663086                                      
+step:494, loss:4.0497612953186035                                      
+step:495, loss:4.044106960296631                                       
+step:496, loss:3.9067583084106445                                      
+step:497, loss:4.197122573852539                                       
+step:498, loss:3.932642936706543                                       
+ 50%|████▉     | 499/1000 [20:39<08:21,  1.00s/it, step=498, loss=3.93]validation start
+acc_./datasets/primevul/balance_9models/gen_cluster/train.json: 0.74883997620464
+acc 0.2232004759071981
+Routing distribution (8405 queries):
+  codellama/CodeLlama-7b-Instruct-hf                      0  (  0.0%)
+  codellama/CodeLlama-13b-Instruct-hf                  1956  ( 23.3%)
+  deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct             0  (  0.0%)
+  Qwen/Qwen2.5-Coder-14B-Instruct                         0  (  0.0%)
+  bigcode/starcoder2-15b-instruct-v0.1                    0  (  0.0%)
+  Virtue-AI-HUB/VulnLLM-R-7B                           1895  ( 22.5%)
+  google/codegemma-7b-it                               1143  ( 13.6%)
+  google/gemma-2-9b-it                                 3411  ( 40.6%)
+  openai/gpt-4o-mini                                      0  (  0.0%)
+test start
+acc_./datasets/primevul/balance_9models/gen/test.json: 0.7252844832455023
+acc 0.21648626144879268
+Routing distribution (3603 queries):
+  codellama/CodeLlama-7b-Instruct-hf                      0  (  0.0%)
+  codellama/CodeLlama-13b-Instruct-hf                   846  ( 23.5%)
+  deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct             0  (  0.0%)
+  Qwen/Qwen2.5-Coder-14B-Instruct                         0  (  0.0%)
+  bigcode/starcoder2-15b-instruct-v0.1                    0  (  0.0%)
+  Virtue-AI-HUB/VulnLLM-R-7B                            766  ( 21.3%)
+  google/codegemma-7b-it                                490  ( 13.6%)
+  google/gemma-2-9b-it                                 1501  ( 41.7%)
+  openai/gpt-4o-mini                                      0  (  0.0%)
+average testing 0.7252844832455023
+average training 0.74883997620464
+step:499, loss:3.9134769439697266                                      
+step:500, loss:3.902218818664551                                         
+step:501, loss:4.372188568115234                                         
+step:502, loss:3.9920272827148438                                        
+step:503, loss:4.163470268249512                                         
+step:504, loss:4.161204814910889                                         
+step:505, loss:4.083001136779785                                       
+step:506, loss:4.242262363433838                                       
+step:507, loss:3.9408915042877197                                      
+step:508, loss:4.135600566864014                                       
+step:509, loss:4.131242275238037                                       
+step:510, loss:4.216249465942383                                       
+step:511, loss:4.4614033699035645                                      
+step:512, loss:4.109138488769531                                       
+step:513, loss:4.397646903991699                                       
+step:514, loss:4.047599792480469                                       
+step:515, loss:4.115605354309082                                       
+step:516, loss:4.063103675842285                                       
+step:517, loss:4.189967632293701                                       
+step:518, loss:4.191946983337402                                       
+step:519, loss:4.140691757202148                                       
+step:520, loss:4.097151756286621                                       
+step:521, loss:4.186145305633545                                       
+step:522, loss:4.0975847244262695                                      
+step:523, loss:4.200373649597168                                      
+step:524, loss:4.38095235824585                                        
+step:525, loss:3.7777509689331055                                      
+step:526, loss:4.086015701293945                                       
+step:527, loss:4.283662796020508                                       
+ 53%|█████▎    | 528/1000 [22:31<06:01,  1.31it/s, step=527, loss=4.28]step:528, avg_loss_per_epoch:4.122444971823253
+step:528, loss:3.8545546531677246                                      
+step:529, loss:4.111297607421875                                       
+step:530, loss:3.959794044494629                                       
+step:531, loss:4.167328357696533                                       
+step:532, loss:4.067208766937256                                       
+step:533, loss:4.147647857666016                                       
+step:534, loss:4.234140396118164                                       
+step:535, loss:4.2833051681518555                                      
+step:536, loss:3.9999468326568604                                      
+step:537, loss:4.08358097076416                                        
+step:538, loss:3.959033250808716                                       
+step:539, loss:4.336565017700195                                       
+step:540, loss:4.074848651885986                                       
+step:541, loss:3.949896812438965                                       
+step:542, loss:4.123353004455566                                       
+step:543, loss:4.189126968383789                                       
+step:544, loss:4.1975531578063965                                      
+step:545, loss:4.1175689697265625                                      
+step:546, loss:4.0286760330200195                                      
+step:547, loss:3.8797850608825684                                      
+step:548, loss:4.495026111602783                                       
+ 55%|█████▍    | 549/1000 [22:51<07:02,  1.07it/s, step=548, loss=4.5]validation start
+acc_./datasets/primevul/balance_9models/gen_cluster/train.json: 0.7603569325771026
+acc 0.22046400951814396
+Routing distribution (8405 queries):
+  codellama/CodeLlama-7b-Instruct-hf                      0  (  0.0%)
+  codellama/CodeLlama-13b-Instruct-hf                  1953  ( 23.2%)
+  deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct             0  (  0.0%)
+  Qwen/Qwen2.5-Coder-14B-Instruct                         0  (  0.0%)
+  bigcode/starcoder2-15b-instruct-v0.1                    0  (  0.0%)
+  Virtue-AI-HUB/VulnLLM-R-7B                           2423  ( 28.8%)
+  google/codegemma-7b-it                                629  (  7.5%)
+  google/gemma-2-9b-it                                 3400  ( 40.5%)
+  openai/gpt-4o-mini                                      0  (  0.0%)
+test start
+acc_./datasets/primevul/balance_9models/gen/test.json: 0.7326672215478935
+acc 0.21426588953649736
+Routing distribution (3603 queries):
+  codellama/CodeLlama-7b-Instruct-hf                      0  (  0.0%)
+  codellama/CodeLlama-13b-Instruct-hf                   843  ( 23.4%)
+  deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct             0  (  0.0%)
+  Qwen/Qwen2.5-Coder-14B-Instruct                         0  (  0.0%)
+  bigcode/starcoder2-15b-instruct-v0.1                    0  (  0.0%)
+  Virtue-AI-HUB/VulnLLM-R-7B                           1051  ( 29.2%)
+  google/codegemma-7b-it                                211  (  5.9%)
+  google/gemma-2-9b-it                                 1498  ( 41.6%)
+  openai/gpt-4o-mini                                      0  (  0.0%)
+average testing 0.7326672215478935
+average training 0.7603569325771026
+step:549, loss:4.109981060028076                                       
+step:550, loss:4.041451454162598                                         
+step:551, loss:3.6733815670013428                                        
+step:552, loss:3.984673023223877                                         
+step:553, loss:4.026676654815674                                         
+step:554, loss:4.053672790527344                                         
+step:555, loss:4.003403663635254                                       
+step:556, loss:3.8046727180480957                                     
+step:557, loss:4.13641881942749                                        
+step:558, loss:3.7970690727233887                                      
+step:559, loss:3.932255744934082                                       
+step:560, loss:4.23648738861084                                        
+step:561, loss:4.173828125                                             
+step:562, loss:3.8564207553863525                                      
+step:563, loss:4.272943496704102                                       
+step:564, loss:4.115393161773682                                       
+step:565, loss:4.193232536315918                                       
+step:566, loss:4.2119669914245605                                      
+step:567, loss:3.757646083831787                                       
+step:568, loss:3.874847173690796                                       
+step:569, loss:4.009075164794922                                       
+step:570, loss:3.903933525085449                                       
+step:571, loss:4.113539695739746                                       
+step:572, loss:4.37035608291626                                        
+step:573, loss:4.034494876861572                                       
+step:574, loss:4.174793720245361                                       
+step:575, loss:3.94496488571167                                        
+step:576, loss:4.171065807342529                                       
+step:577, loss:4.124262809753418                                       
+step:578, loss:4.2251811027526855                                      
+step:579, loss:4.068526268005371                                       
+step:580, loss:4.227541923522949                                       
+step:581, loss:4.228556156158447                                       
+step:582, loss:4.0860595703125                                         
+step:583, loss:4.137124538421631                                       
+step:584, loss:4.103256702423096                                       
+step:585, loss:4.077610492706299                                       
+step:586, loss:4.3059773445129395                                      
+step:587, loss:4.105374336242676                                       
+step:588, loss:4.244121551513672                                       
+step:589, loss:4.189727306365967                                       
+step:590, loss:4.1591796875                                            
+step:591, loss:4.144036293029785                                       
+step:592, loss:4.229185581207275                                       
+step:593, loss:4.15897798538208                                        
+step:594, loss:4.185276031494141                                       
+step:595, loss:4.170876979827881                                       
+step:596, loss:4.038099765777588                                       
+step:597, loss:4.417280197143555                                       
+step:598, loss:3.8606462478637695                                      
+ 60%|█████▉    | 599/1000 [25:07<06:20,  1.05it/s, step=598, loss=3.86]validation start
+acc_./datasets/primevul/balance_9models/gen_cluster/train.json: 0.7637596656849241
+acc 0.20892325996430697
+Routing distribution (8405 queries):
+  codellama/CodeLlama-7b-Instruct-hf                      0  (  0.0%)
+  codellama/CodeLlama-13b-Instruct-hf                  1733  ( 20.6%)
+  deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct             0  (  0.0%)
+  Qwen/Qwen2.5-Coder-14B-Instruct                         0  (  0.0%)
+  bigcode/starcoder2-15b-instruct-v0.1                    0  (  0.0%)
+  Virtue-AI-HUB/VulnLLM-R-7B                           2411  ( 28.7%)
+  google/codegemma-7b-it                                858  ( 10.2%)
+  google/gemma-2-9b-it                                 3403  ( 40.5%)
+  openai/gpt-4o-mini                                      0  (  0.0%)
+test start
+acc_./datasets/primevul/balance_9models/gen/test.json: 0.731446014984495
+acc 0.20094365806272552
+Routing distribution (3603 queries):
+  codellama/CodeLlama-7b-Instruct-hf                      0  (  0.0%)
+  codellama/CodeLlama-13b-Instruct-hf                   734  ( 20.4%)
+  deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct             0  (  0.0%)
+  Qwen/Qwen2.5-Coder-14B-Instruct                         0  (  0.0%)
+  bigcode/starcoder2-15b-instruct-v0.1                    0  (  0.0%)
+  Virtue-AI-HUB/VulnLLM-R-7B                           1023  ( 28.4%)
+  google/codegemma-7b-it                                346  (  9.6%)
+  google/gemma-2-9b-it                                 1500  ( 41.6%)
+  openai/gpt-4o-mini                                      0  (  0.0%)
+average testing 0.731446014984495
+average training 0.7637596656849241
+step:599, loss:4.090242385864258                                       
+step:600, loss:4.1217803955078125                                        
+step:601, loss:4.128698348999023                                         
+step:602, loss:4.250620365142822                                         
+step:603, loss:4.180757522583008                                         
+step:604, loss:3.96868896484375                                          
+step:605, loss:3.980060338973999                                       
+step:606, loss:4.2645697593688965                                      
+step:607, loss:4.0749688148498535                                      
+step:608, loss:3.764089584350586                                       
+step:609, loss:4.180617809295654                                       
+step:610, loss:4.22017765045166                                        
+step:611, loss:4.0185041427612305                                      
+step:612, loss:4.198116302490234                                       
+step:613, loss:4.028016567230225                                       
+step:614, loss:4.373600006103516                                       
+step:615, loss:4.267398357391357                                       
+step:616, loss:3.987456798553467                                       
+step:617, loss:4.180189609527588                                       
+step:618, loss:4.254138469696045                                       
+step:619, loss:4.095106601715088                                       
+step:620, loss:4.462203502655029                                       
+step:621, loss:3.979597568511963                                       
+step:622, loss:4.175136089324951                                       
+step:623, loss:3.801718235015869                                       
+step:624, loss:4.003197193145752                                      
+step:625, loss:4.133213996887207                                       
+step:626, loss:3.898411512374878                                       
+step:627, loss:4.094736576080322                                       
+step:628, loss:3.999732255935669                                       
+step:629, loss:3.8396670818328857                                      
+step:630, loss:4.129329681396484                                       
+step:631, loss:4.2206830978393555                                      
+step:632, loss:4.118278980255127                                       
+step:633, loss:4.230804920196533                                       
+step:634, loss:4.099636077880859                                       
+step:635, loss:3.9493660926818848                                      
+step:636, loss:3.9615859985351562                                      
+step:637, loss:4.246280193328857                                       
+step:638, loss:4.00739860534668                                        
+step:639, loss:4.195137977600098                                       
+step:640, loss:3.8945398330688477                                      
+step:641, loss:3.9160847663879395                                      
+step:642, loss:4.1842474937438965                                      
+step:643, loss:4.313087463378906                                       
+step:644, loss:4.093199253082275                                       
+step:645, loss:3.9978628158569336                                      
+step:646, loss:3.8271284103393555                                      
+step:647, loss:4.196605682373047                                       
+step:648, loss:4.411868095397949                                       
+ 65%|██████▍   | 649/1000 [27:20<05:25,  1.08it/s, step=648, loss=4.41]validation start
+acc_./datasets/primevul/balance_9models/gen_cluster/train.json: 0.7684473526754385
+acc 0.2149910767400357
+Routing distribution (8405 queries):
+  codellama/CodeLlama-7b-Instruct-hf                      0  (  0.0%)
+  codellama/CodeLlama-13b-Instruct-hf                  1862  ( 22.2%)
+  deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct            10  (  0.1%)
+  Qwen/Qwen2.5-Coder-14B-Instruct                         0  (  0.0%)
+  bigcode/starcoder2-15b-instruct-v0.1                    0  (  0.0%)
+  Virtue-AI-HUB/VulnLLM-R-7B                           2463  ( 29.3%)
+  google/codegemma-7b-it                                639  (  7.6%)
+  google/gemma-2-9b-it                                 3431  ( 40.8%)
+  openai/gpt-4o-mini                                      0  (  0.0%)
+test start
+acc_./datasets/primevul/balance_9models/gen/test.json: 0.7325006943426627
+acc 0.20788232028864834
+Routing distribution (3603 queries):
+  codellama/CodeLlama-7b-Instruct-hf                      0  (  0.0%)
+  codellama/CodeLlama-13b-Instruct-hf                   799  ( 22.2%)
+  deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct             5  (  0.1%)
+  Qwen/Qwen2.5-Coder-14B-Instruct                         0  (  0.0%)
+  bigcode/starcoder2-15b-instruct-v0.1                    0  (  0.0%)
+  Virtue-AI-HUB/VulnLLM-R-7B                           1092  ( 30.3%)
+  google/codegemma-7b-it                                201  (  5.6%)
+  google/gemma-2-9b-it                                 1506  ( 41.8%)
+  openai/gpt-4o-mini                                      0  (  0.0%)
+average testing 0.7325006943426627
+average training 0.7684473526754385
+step:649, loss:4.223715782165527                                       
+step:650, loss:4.042860984802246                                         
+step:651, loss:4.100050926208496                                         
+step:652, loss:4.1471943855285645                                        
+step:653, loss:4.024640083312988                                         
+step:654, loss:3.985196113586426                                       
+step:655, loss:4.181547164916992                                       
+step:656, loss:4.0922040939331055                                      
+step:657, loss:4.064897060394287                                       
+step:658, loss:4.078516006469727                                       
+step:659, loss:4.29570198059082                                        
+ 66%|██████▌   | 660/1000 [28:56<08:24,  1.48s/it, step=659, loss=4.3]step:660, avg_loss_per_epoch:4.097253734990289
+step:660, loss:3.9577035903930664                                      
+step:661, loss:4.132123947143555                                       
+step:662, loss:3.865709066390991                                       
+step:663, loss:3.871535539627075                                       
+step:664, loss:4.196917533874512                                       
+step:665, loss:4.035595893859863                                       
+step:666, loss:4.25115966796875                                        
+step:667, loss:3.969165325164795                                       
+step:668, loss:3.9701435565948486                                      
+step:669, loss:4.135784149169922                                       
+step:670, loss:4.238672256469727                                       
+step:671, loss:4.371987342834473                                       
+step:672, loss:3.900028705596924                                       
+step:673, loss:4.080329418182373                                       
+step:674, loss:4.1759748458862305                                      
+step:675, loss:4.005804538726807                                       
+step:676, loss:4.189489364624023                                       
+step:677, loss:4.19505500793457                                        
+step:678, loss:4.052691459655762                                       
+step:679, loss:4.106632232666016                                       
+step:680, loss:4.040223121643066                                       
+step:681, loss:3.9062514305114746                                      
+step:682, loss:3.6878552436828613                                      
+step:683, loss:4.060564041137695                                       
+step:684, loss:3.595569133758545                                       
+step:685, loss:4.098851203918457                                      
+step:686, loss:3.9255385398864746                                      
+step:687, loss:3.8380215167999268                                      
+step:688, loss:4.249310493469238                                       
+step:689, loss:3.7814154624938965                                      
+step:690, loss:4.201201438903809                                       
+step:691, loss:4.151249408721924                                       
+step:692, loss:4.372910499572754                                       
+step:693, loss:4.055330753326416                                       
+step:694, loss:4.1706366539001465                                      
+step:695, loss:4.079981803894043                                       
+step:696, loss:4.117566108703613                                       
+step:697, loss:4.239035606384277                                       
+step:698, loss:4.219588279724121                                       
+ 70%|██████▉   | 699/1000 [29:32<04:44,  1.06it/s, step=698, loss=4.22]validation start
+acc_./datasets/primevul/balance_9models/gen_cluster/train.json: 0.7716359292234004
+acc 0.26710291493158833
+Routing distribution (8405 queries):
+  codellama/CodeLlama-7b-Instruct-hf                      0  (  0.0%)
+  codellama/CodeLlama-13b-Instruct-hf                  2454  ( 29.2%)
+  deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct             0  (  0.0%)
+  Qwen/Qwen2.5-Coder-14B-Instruct                         0  (  0.0%)
+  bigcode/starcoder2-15b-instruct-v0.1                    0  (  0.0%)
+  Virtue-AI-HUB/VulnLLM-R-7B                           1662  ( 19.8%)
+  google/codegemma-7b-it                                878  ( 10.4%)
+  google/gemma-2-9b-it                                 3411  ( 40.6%)
+  openai/gpt-4o-mini                                      0  (  0.0%)
+test start
+acc_./datasets/primevul/balance_9models/gen/test.json: 0.7334443530935795
+acc 0.23591451568137664
+Routing distribution (3603 queries):
+  codellama/CodeLlama-7b-Instruct-hf                      0  (  0.0%)
+  codellama/CodeLlama-13b-Instruct-hf                   980  ( 27.2%)
+  deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct             0  (  0.0%)
+  Qwen/Qwen2.5-Coder-14B-Instruct                         0  (  0.0%)
+  bigcode/starcoder2-15b-instruct-v0.1                    0  (  0.0%)
+  Virtue-AI-HUB/VulnLLM-R-7B                            790  ( 21.9%)
+  google/codegemma-7b-it                                332  (  9.2%)
+  google/gemma-2-9b-it                                 1501  ( 41.7%)
+  openai/gpt-4o-mini                                      0  (  0.0%)
+average testing 0.7334443530935795
+average training 0.7716359292234004
+step:699, loss:4.39495325088501                                        
+step:700, loss:3.7704551219940186                                        
+step:701, loss:3.9783365726470947                                        
+step:702, loss:4.1076178550720215                                        
+step:703, loss:3.9995691776275635                                        
+step:704, loss:3.917335033416748                                       
+step:705, loss:4.329947471618652                                       
+step:706, loss:4.046070575714111                                       
+step:707, loss:3.9702420234680176                                      
+step:708, loss:3.850959300994873                                       
+step:709, loss:4.041656970977783                                       
+step:710, loss:3.9226956367492676                                      
+step:711, loss:4.313643932342529                                       
+step:712, loss:4.092823028564453                                       
+step:713, loss:4.035379409790039                                       
+step:714, loss:4.33188533782959                                        
+step:715, loss:4.262421607971191                                       
+step:716, loss:4.240835189819336                                       
+step:717, loss:4.021573543548584                                       
+step:718, loss:4.047998428344727                                       
+step:719, loss:4.046008586883545                                       
+step:720, loss:4.172860145568848                                       
+step:721, loss:4.028372764587402                                       
+step:722, loss:4.0800557136535645                                      
+step:723, loss:3.8300375938415527                                      
+step:724, loss:3.7978434562683105                                      
+step:725, loss:4.193851470947266                                       
+step:726, loss:4.172901153564453                                       
+step:727, loss:4.45013427734375                                        
+step:728, loss:3.844585418701172                                       
+step:729, loss:3.950110912322998                                       
+step:730, loss:3.979459285736084                                       
+step:731, loss:3.781057834625244                                       
+step:732, loss:4.331945419311523                                       
+step:733, loss:3.932188034057617                                       
+step:734, loss:4.016636371612549                                       
+step:735, loss:4.018983840942383                                       
+step:736, loss:4.0207295417785645                                      
+step:737, loss:4.068986892700195                                       
+step:738, loss:4.026114463806152                                       
+step:739, loss:4.254732608795166                                       
+step:740, loss:4.0169477462768555                                      
+step:741, loss:4.1387739181518555                                      
+step:742, loss:4.161308288574219                                       
+step:743, loss:3.9729981422424316                                      
+step:744, loss:4.194211959838867                                       
+step:745, loss:3.789515495300293                                       
+step:746, loss:4.0384345054626465                                      
+step:747, loss:4.020820617675781                                       
+step:748, loss:4.186429500579834                                       
+ 75%|███████▍  | 749/1000 [31:49<03:56,  1.06it/s, step=748, loss=4.19]validation start
+acc_./datasets/primevul/balance_9models/gen_cluster/train.json: 0.7767043490980013
+acc 0.28304580606781676
+Routing distribution (8405 queries):
+  codellama/CodeLlama-7b-Instruct-hf                      0  (  0.0%)
+  codellama/CodeLlama-13b-Instruct-hf                  2687  ( 32.0%)
+  deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct             0  (  0.0%)
+  Qwen/Qwen2.5-Coder-14B-Instruct                         0  (  0.0%)
+  bigcode/starcoder2-15b-instruct-v0.1                    0  (  0.0%)
+  Virtue-AI-HUB/VulnLLM-R-7B                           1507  ( 17.9%)
+  google/codegemma-7b-it                                808  (  9.6%)
+  google/gemma-2-9b-it                                 3403  ( 40.5%)
+  openai/gpt-4o-mini                                      0  (  0.0%)
+test start
+acc_./datasets/primevul/balance_9models/gen/test.json: 0.7303913435669962
+acc 0.24757146822092702
+Routing distribution (3603 queries):
+  codellama/CodeLlama-7b-Instruct-hf                      0  (  0.0%)
+  codellama/CodeLlama-13b-Instruct-hf                  1123  ( 31.2%)
+  deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct             0  (  0.0%)
+  Qwen/Qwen2.5-Coder-14B-Instruct                         0  (  0.0%)
+  bigcode/starcoder2-15b-instruct-v0.1                    0  (  0.0%)
+  Virtue-AI-HUB/VulnLLM-R-7B                            688  ( 19.1%)
+  google/codegemma-7b-it                                293  (  8.1%)
+  google/gemma-2-9b-it                                 1499  ( 41.6%)
+  openai/gpt-4o-mini                                      0  (  0.0%)
+average testing 0.7303913435669962
+average training 0.7767043490980013
+step:749, loss:4.178297996520996                                       
+step:750, loss:3.8755598068237305                                        
+step:751, loss:4.242032527923584                                         
+step:752, loss:3.9203639030456543                                        
+step:753, loss:3.943612575531006                                       
+step:754, loss:3.958900213241577                                       
+step:755, loss:4.0594282150268555                                      
+step:756, loss:3.9887301921844482                                      
+step:757, loss:3.990947723388672                                       
+step:758, loss:3.892569065093994                                       
+step:759, loss:3.980283498764038                                       
+step:760, loss:4.057307720184326                                       
+step:761, loss:4.355482578277588                                       
+step:762, loss:4.145072937011719                                       
+step:763, loss:3.8782668113708496                                      
+step:764, loss:4.1730146408081055                                      
+step:765, loss:4.029061317443848                                       
+step:766, loss:4.1968584060668945                                      
+step:767, loss:4.069787979125977                                       
+step:768, loss:3.9467668533325195                                      
+step:769, loss:3.998307943344116                                       
+step:770, loss:4.055654048919678                                       
+step:771, loss:4.1080002784729                                         
+step:772, loss:3.995741128921509                                       
+step:773, loss:4.020767688751221                                       
+step:774, loss:4.2230939865112305                                      
+step:775, loss:4.119601726531982                                       
+step:776, loss:4.155946254730225                                       
+step:777, loss:4.046957969665527                                       
+step:778, loss:3.8922817707061768                                      
+step:779, loss:3.91715669631958                                        
+step:780, loss:4.099844932556152                                       
+step:781, loss:3.946887731552124                                       
+step:782, loss:3.970468044281006                                       
+step:783, loss:4.09531307220459                                        
+step:784, loss:3.8673739433288574                                      
+step:785, loss:3.913379669189453                                       
+step:786, loss:4.3303704261779785                                      
+step:787, loss:4.170723915100098                                       
+step:788, loss:3.9427194595336914                                      
+step:789, loss:4.192081451416016                                       
+step:790, loss:3.9353017807006836                                      
+step:791, loss:3.918673515319824                                       
+ 79%|███████▉  | 792/1000 [33:54<02:37,  1.32it/s, step=791, loss=3.92]step:792, avg_loss_per_epoch:4.0574185707823
+step:792, loss:3.992777109146118                                       
+step:793, loss:4.120063781738281                                       
+step:794, loss:4.164295673370361                                       
+step:795, loss:4.172867774963379                                       
+step:796, loss:3.8433799743652344                                      
+step:797, loss:4.034849166870117                                       
+step:798, loss:3.804746150970459                                       
+ 80%|███████▉  | 799/1000 [34:01<03:07,  1.07it/s, step=798, loss=3.8]validation start
+acc_./datasets/primevul/balance_9models/gen_cluster/train.json: 0.7758001185683251
+acc 0.28233194527067224
+Routing distribution (8405 queries):
+  codellama/CodeLlama-7b-Instruct-hf                      0  (  0.0%)
+  codellama/CodeLlama-13b-Instruct-hf                  2694  ( 32.1%)
+  deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct             0  (  0.0%)
+  Qwen/Qwen2.5-Coder-14B-Instruct                         0  (  0.0%)
+  bigcode/starcoder2-15b-instruct-v0.1                    0  (  0.0%)
+  Virtue-AI-HUB/VulnLLM-R-7B                           1505  ( 17.9%)
+  google/codegemma-7b-it                                803  (  9.6%)
+  google/gemma-2-9b-it                                 3403  ( 40.5%)
+  openai/gpt-4o-mini                                      0  (  0.0%)
+test start
+acc_./datasets/primevul/balance_9models/gen/test.json: 0.7274493535889078
+acc 0.24646128226477934
+Routing distribution (3603 queries):
+  codellama/CodeLlama-7b-Instruct-hf                      0  (  0.0%)
+  codellama/CodeLlama-13b-Instruct-hf                  1147  ( 31.8%)
+  deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct             0  (  0.0%)
+  Qwen/Qwen2.5-Coder-14B-Instruct                         0  (  0.0%)
+  bigcode/starcoder2-15b-instruct-v0.1                    0  (  0.0%)
+  Virtue-AI-HUB/VulnLLM-R-7B                            682  ( 18.9%)
+  google/codegemma-7b-it                                276  (  7.7%)
+  google/gemma-2-9b-it                                 1498  ( 41.6%)
+  openai/gpt-4o-mini                                      0  (  0.0%)
+average testing 0.7274493535889078
+average training 0.7758001185683251
+step:799, loss:4.247046947479248                                       
+step:800, loss:3.914139747619629                                         
+step:801, loss:3.837367296218872                                         
+step:802, loss:4.02377986907959                                          
+step:803, loss:4.182124614715576                                       
+step:804, loss:3.8106091022491455                                      
+step:805, loss:4.06227445602417                                        
+step:806, loss:3.974928140640259                                       
+step:807, loss:3.9673829078674316                                      
+step:808, loss:4.159481525421143                                       
+step:809, loss:3.908508777618408                                       
+step:810, loss:4.030777931213379                                       
+step:811, loss:3.9872045516967773                                      
+step:812, loss:3.845201015472412                                       
+step:813, loss:3.7548301219940186                                      
+step:814, loss:4.015019416809082                                       
+step:815, loss:3.9197287559509277                                      
+step:816, loss:4.060295581817627                                       
+step:817, loss:3.8732330799102783                                      
+step:818, loss:4.089072227478027                                       
+step:819, loss:4.044518947601318                                       
+step:820, loss:4.20893669128418                                        
+step:821, loss:3.8291754722595215                                      
+step:822, loss:3.8635611534118652                                      
+step:823, loss:4.02458381652832                                        
+step:824, loss:4.075528144836426                                       
+step:825, loss:3.982351779937744                                       
+step:826, loss:4.170255661010742                                       
+step:827, loss:3.8955955505371094                                      
+step:828, loss:3.975114583969116                                       
+step:829, loss:3.9812562465667725                                      
+step:830, loss:3.871689796447754                                       
+step:831, loss:3.9465956687927246                                      
+step:832, loss:3.9288268089294434                                      
+step:833, loss:3.8671762943267822                                      
+step:834, loss:4.103265762329102                                       
+step:835, loss:3.9465372562408447                                      
+step:836, loss:4.016578674316406                                       
+step:837, loss:3.9408774375915527                                      
+step:838, loss:3.7877774238586426                                      
+step:839, loss:3.88814115524292                                        
+step:840, loss:3.812847375869751                                       
+step:841, loss:4.0010504722595215                                      
+step:842, loss:3.9320077896118164                                      
+step:843, loss:4.288960933685303                                       
+step:844, loss:4.104133129119873                                       
+step:845, loss:4.043162822723389                                       
+step:846, loss:4.218292713165283                                       
+step:847, loss:4.105271339416504                                       
+step:848, loss:3.8735909461975098                                      
+ 85%|████████▍ | 849/1000 [36:12<02:25,  1.04it/s, step=848, loss=3.87]validation start
+acc_./datasets/primevul/balance_9models/gen_cluster/train.json: 0.7972159447519641
+acc 0.2893515764425937
+Routing distribution (8405 queries):
+  codellama/CodeLlama-7b-Instruct-hf                      0  (  0.0%)
+  codellama/CodeLlama-13b-Instruct-hf                  2684  ( 31.9%)
+  deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct             0  (  0.0%)
+  Qwen/Qwen2.5-Coder-14B-Instruct                         0  (  0.0%)
+  bigcode/starcoder2-15b-instruct-v0.1                    0  (  0.0%)
+  Virtue-AI-HUB/VulnLLM-R-7B                           1199  ( 14.3%)
+  google/codegemma-7b-it                               1121  ( 13.3%)
+  google/gemma-2-9b-it                                 3401  ( 40.5%)
+  openai/gpt-4o-mini                                      0  (  0.0%)
+test start
+acc_./datasets/primevul/balance_9models/gen/test.json: 0.7280599552824734
+acc 0.24590618928670552
+Routing distribution (3603 queries):
+  codellama/CodeLlama-7b-Instruct-hf                      0  (  0.0%)
+  codellama/CodeLlama-13b-Instruct-hf                  1103  ( 30.6%)
+  deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct             0  (  0.0%)
+  Qwen/Qwen2.5-Coder-14B-Instruct                         0  (  0.0%)
+  bigcode/starcoder2-15b-instruct-v0.1                    0  (  0.0%)
+  Virtue-AI-HUB/VulnLLM-R-7B                            567  ( 15.7%)
+  google/codegemma-7b-it                                436  ( 12.1%)
+  google/gemma-2-9b-it                                 1497  ( 41.5%)
+  openai/gpt-4o-mini                                      0  (  0.0%)
+average testing 0.7280599552824734
+average training 0.7972159447519641
+step:849, loss:3.8464763164520264                                      
+step:850, loss:4.166398048400879                                         
+step:851, loss:4.232632160186768                                         
+step:852, loss:3.835420608520508                                       
+step:853, loss:4.1488823890686035                                      
+step:854, loss:4.191703796386719                                       
+step:855, loss:3.928250312805176                                       
+step:856, loss:4.035107135772705                                       
+step:857, loss:4.276944160461426                                       
+step:858, loss:4.063559532165527                                       
+step:859, loss:3.8185372352600098                                      
+step:860, loss:3.741978645324707                                       
+step:861, loss:4.044402122497559                                       
+step:862, loss:4.044676780700684                                       
+step:863, loss:3.9768588542938232                                      
+step:864, loss:4.0586442947387695                                      
+step:865, loss:3.9344608783721924                                      
+step:866, loss:3.94879412651062                                        
+step:867, loss:4.014337539672852                                       
+step:868, loss:3.9301352500915527                                      
+step:869, loss:4.2863969802856445                                      
+step:870, loss:4.209932804107666                                       
+step:871, loss:4.207715034484863                                       
+step:872, loss:4.048938751220703                                       
+step:873, loss:3.8485305309295654                                      
+step:874, loss:4.194218635559082                                       
+step:875, loss:3.912353754043579                                       
+step:876, loss:4.227783203125                                          
+step:877, loss:4.075769424438477                                       
+step:878, loss:3.977682590484619                                       
+step:879, loss:4.064038276672363                                       
+step:880, loss:4.062548637390137                                       
+step:881, loss:3.9906516075134277                                      
+step:882, loss:3.9439597129821777                                      
+step:883, loss:3.94417405128479                                        
+step:884, loss:4.240716934204102                                       
+step:885, loss:4.020918846130371                                       
+step:886, loss:4.106636047363281                                       
+step:887, loss:3.964265823364258                                       
+step:888, loss:4.023801326751709                                       
+step:889, loss:3.9822773933410645                                      
+step:890, loss:3.9129645824432373                                      
+step:891, loss:4.077864170074463                                       
+step:892, loss:4.013623237609863                                       
+step:893, loss:3.987757444381714                                       
+step:894, loss:4.00039529800415                                        
+step:895, loss:4.009429454803467                                       
+step:896, loss:4.021555423736572                                       
+step:897, loss:3.714792490005493                                       
+step:898, loss:4.057207107543945                                       
+ 90%|████████▉ | 899/1000 [38:25<01:33,  1.08it/s, step=898, loss=4.06]validation start
+acc_./datasets/primevul/balance_9models/gen_cluster/train.json: 0.8040928043544754
+acc 0.273051754907793
+Routing distribution (8405 queries):
+  codellama/CodeLlama-7b-Instruct-hf                      2  (  0.0%)
+  codellama/CodeLlama-13b-Instruct-hf                  2330  ( 27.7%)
+  deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct           213  (  2.5%)
+  Qwen/Qwen2.5-Coder-14B-Instruct                         0  (  0.0%)
+  bigcode/starcoder2-15b-instruct-v0.1                    0  (  0.0%)
+  Virtue-AI-HUB/VulnLLM-R-7B                           1096  ( 13.0%)
+  google/codegemma-7b-it                               1348  ( 16.0%)
+  google/gemma-2-9b-it                                 3416  ( 40.6%)
+  openai/gpt-4o-mini                                      0  (  0.0%)
+test start
+acc_./datasets/primevul/balance_9models/gen/test.json: 0.7215098479771462
+acc 0.21343325006938663
+Routing distribution (3603 queries):
+  codellama/CodeLlama-7b-Instruct-hf                      0  (  0.0%)
+  codellama/CodeLlama-13b-Instruct-hf                   852  ( 23.6%)
+  deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct           116  (  3.2%)
+  Qwen/Qwen2.5-Coder-14B-Instruct                         0  (  0.0%)
+  bigcode/starcoder2-15b-instruct-v0.1                    0  (  0.0%)
+  Virtue-AI-HUB/VulnLLM-R-7B                            521  ( 14.5%)
+  google/codegemma-7b-it                                614  ( 17.0%)
+  google/gemma-2-9b-it                                 1500  ( 41.6%)
+  openai/gpt-4o-mini                                      0  (  0.0%)
+average testing 0.7215098479771462
+average training 0.8040928043544754
+step:899, loss:3.9933717250823975                                      
+step:900, loss:3.9672861099243164                                      
+step:901, loss:4.268457412719727                                       
+step:902, loss:4.050861358642578                                       
+step:903, loss:4.136739730834961                                       
+step:904, loss:4.290650844573975                                       
+step:905, loss:3.9062628746032715                                      
+step:906, loss:3.957437038421631                                       
+step:907, loss:4.108747959136963                                       
+step:908, loss:3.9973883628845215                                      
+step:909, loss:4.034704685211182                                       
+step:910, loss:4.017025947570801                                       
+step:911, loss:4.100466251373291                                       
+step:912, loss:4.017813682556152                                       
+step:913, loss:3.9174227714538574                                      
+step:914, loss:4.17222785949707                                        
+step:915, loss:3.7355103492736816                                      
+step:916, loss:3.9632744789123535                                      
+step:917, loss:3.868297576904297                                       
+step:918, loss:4.184446811676025                                       
+step:919, loss:4.357673645019531                                       
+step:920, loss:4.278533935546875                                       
+step:921, loss:3.9554009437561035                                      
+step:922, loss:3.96223783493042                                        
+step:923, loss:3.802835464477539                                       
+ 92%|█████████▏| 924/1000 [40:14<00:59,  1.28it/s, step=923, loss=3.8]step:924, avg_loss_per_epoch:4.015749047555645
+step:924, loss:3.975144863128662                                       
+step:925, loss:4.0112504959106445                                      
+step:926, loss:4.078876972198486                                       
+step:927, loss:3.9788122177124023                                      
+step:928, loss:4.119378089904785                                       
+step:929, loss:4.1594109535217285                                      
+step:930, loss:3.9972152709960938                                      
+step:931, loss:4.202939987182617                                      
+step:932, loss:3.8214149475097656                                      
+step:933, loss:3.942636728286743                                       
+step:934, loss:3.9087347984313965                                      
+step:935, loss:4.072030544281006                                       
+step:936, loss:3.9269373416900635                                      
+step:937, loss:4.014048099517822                                       
+step:938, loss:3.8078598976135254                                      
+step:939, loss:4.152285575866699                                       
+step:940, loss:3.9668731689453125                                      
+step:941, loss:4.029964923858643                                       
+step:942, loss:3.871579885482788                                       
+step:943, loss:3.9251322746276855                                      
+step:944, loss:3.9871764183044434                                      
+step:945, loss:3.9845070838928223                                      
+step:946, loss:4.114780426025391                                       
+step:947, loss:4.303582191467285                                       
+step:948, loss:3.8174257278442383                                      
+ 95%|█████████▍| 949/1000 [40:38<00:49,  1.03it/s, step=948, loss=3.82]validation start
+acc_./datasets/primevul/balance_9models/gen_cluster/train.json: 0.7965972662113877
+acc 0.3318262938726948
+Routing distribution (8405 queries):
+  codellama/CodeLlama-7b-Instruct-hf                      0  (  0.0%)
+  codellama/CodeLlama-13b-Instruct-hf                  3188  ( 37.9%)
+  deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct             0  (  0.0%)
+  Qwen/Qwen2.5-Coder-14B-Instruct                         0  (  0.0%)
+  bigcode/starcoder2-15b-instruct-v0.1                    0  (  0.0%)
+  Virtue-AI-HUB/VulnLLM-R-7B                            623  (  7.4%)
+  google/codegemma-7b-it                               1178  ( 14.0%)
+  google/gemma-2-9b-it                                 3416  ( 40.6%)
+  openai/gpt-4o-mini                                      0  (  0.0%)
+test start
+acc_./datasets/primevul/balance_9models/gen/test.json: 0.7286705516822597
+acc 0.2728281987232862
+Routing distribution (3603 queries):
+  codellama/CodeLlama-7b-Instruct-hf                      0  (  0.0%)
+  codellama/CodeLlama-13b-Instruct-hf                  1230  ( 34.1%)
+  deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct             0  (  0.0%)
+  Qwen/Qwen2.5-Coder-14B-Instruct                         0  (  0.0%)
+  bigcode/starcoder2-15b-instruct-v0.1                    0  (  0.0%)
+  Virtue-AI-HUB/VulnLLM-R-7B                            375  ( 10.4%)
+  google/codegemma-7b-it                                497  ( 13.8%)
+  google/gemma-2-9b-it                                 1501  ( 41.7%)
+  openai/gpt-4o-mini                                      0  (  0.0%)
+average testing 0.7286705516822597
+average training 0.7965972662113877
+step:949, loss:3.9921932220458984                                      
+step:950, loss:3.875277519226074                                       
+step:951, loss:4.006865501403809                                       
+step:952, loss:4.212921619415283                                       
+step:953, loss:3.9209399223327637                                      
+step:954, loss:3.7010269165039062                                      
+step:955, loss:4.03688907623291                                        
+step:956, loss:3.89072847366333                                        
+step:957, loss:4.235185146331787                                       
+step:958, loss:4.328600883483887                                       
+step:959, loss:3.920064687728882                                       
+step:960, loss:3.9862821102142334                                      
+step:961, loss:4.137925148010254                                       
+step:962, loss:3.8480958938598633                                      
+step:963, loss:3.7047810554504395                                      
+step:964, loss:3.934523582458496                                       
+step:965, loss:4.082807540893555                                       
+step:966, loss:3.7563652992248535                                      
+step:967, loss:4.02807092666626                                        
+step:968, loss:3.859729290008545                                       
+step:969, loss:3.725707530975342                                       
+step:970, loss:3.9822585582733154                                      
+step:971, loss:3.6657235622406006                                      
+step:972, loss:3.6704320907592773                                      
+step:973, loss:3.888485908508301                                       
+step:974, loss:4.21071195602417                                        
+step:975, loss:3.644158363342285                                       
+step:976, loss:4.187929630279541                                       
+step:977, loss:3.849317789077759                                       
+step:978, loss:4.077962875366211                                       
+step:979, loss:4.015025615692139                                       
+step:980, loss:3.8726284503936768                                      
+step:981, loss:3.9081978797912598                                      
+step:982, loss:4.202828884124756                                       
+step:983, loss:3.9203805923461914                                      
+step:984, loss:4.002527236938477                                       
+step:985, loss:3.9846181869506836                                      
+step:986, loss:3.8282179832458496                                      
+step:987, loss:4.069463729858398                                       
+step:988, loss:3.951434373855591                                       
+step:989, loss:3.703291177749634                                       
+step:990, loss:4.022954940795898                                       
+step:991, loss:4.072848320007324                                       
+step:992, loss:3.887868881225586                                       
+step:993, loss:4.236024856567383                                       
+step:994, loss:4.003386974334717                                       
+step:995, loss:4.000255584716797                                    
+step:996, loss:4.015399932861328                                       
+step:997, loss:3.8802478313446045                                      
+step:998, loss:4.132542610168457                                       
+100%|█████████▉| 999/1000 [42:48<00:00,  1.07it/s, step=998, loss=4.13]validation start
+acc_./datasets/primevul/balance_9models/gen_cluster/train.json: 0.8008804304269295
+acc 0.13468173706127304
+Routing distribution (8405 queries):
+  codellama/CodeLlama-7b-Instruct-hf                      0  (  0.0%)
+  codellama/CodeLlama-13b-Instruct-hf                   578  (  6.9%)
+  deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct          1895  ( 22.5%)
+  Qwen/Qwen2.5-Coder-14B-Instruct                         0  (  0.0%)
+  bigcode/starcoder2-15b-instruct-v0.1                    0  (  0.0%)
+  Virtue-AI-HUB/VulnLLM-R-7B                            974  ( 11.6%)
+  google/codegemma-7b-it                               1532  ( 18.2%)
+  google/gemma-2-9b-it                                 3426  ( 40.8%)
+  openai/gpt-4o-mini                                      0  (  0.0%)
+test start
+acc_./datasets/primevul/balance_9models/gen/test.json: 0.7179017481193786
+acc 0.08853733000277547
+Routing distribution (3603 queries):
+  codellama/CodeLlama-7b-Instruct-hf                      0  (  0.0%)
+  codellama/CodeLlama-13b-Instruct-hf                   109  (  3.0%)
+  deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct           821  ( 22.8%)
+  Qwen/Qwen2.5-Coder-14B-Instruct                         0  (  0.0%)
+  bigcode/starcoder2-15b-instruct-v0.1                    0  (  0.0%)
+  Virtue-AI-HUB/VulnLLM-R-7B                            453  ( 12.6%)
+  google/codegemma-7b-it                                713  ( 19.8%)
+  google/gemma-2-9b-it                                 1507  ( 41.8%)
+  openai/gpt-4o-mini                                      0  (  0.0%)
+average testing 0.7179017481193786
+average training 0.8008804304269295
+step:999, loss:3.977853298187256                                       
+100%|██████████| 1000/1000 [44:13<00:00, 26.05s/it, step=999, loss=3.98]step:1000, avg_loss_per_epoch:3.976578398754722
+best avg 0.7334443530935795
+best training avg 0.8040928043544754
+100%|██████████| 1000/1000 [44:13<00:00,  2.65s/it, step=999, loss=3.98]
