@@ -9,7 +9,7 @@ cluster_loss_weight=1
 seeds=(1)
 
 for seed in "${seeds[@]}"; do
-    ./venv/bin/python3 -u train_files/train_router_primevul_choice_8models.py --training_steps ${training_steps} --top_k ${top_k} --last_k ${last_k} --learning_rate ${learning_rate} --eval_steps 50 --tempreture ${tempreture} --similarity_function ${similarity_function} --sample_loss_weight ${sample_loss_weight} --cluster_loss_weight ${cluster_loss_weight} --seed ${seed} --batch_size 64 --training_samples_per_dataset 8405 \
+    PYTHONPATH=. ./venv/bin/python3 -u train_files/train_router_primevul_choice_8models.py --training_steps ${training_steps} --top_k ${top_k} --last_k ${last_k} --learning_rate ${learning_rate} --eval_steps 50 --tempreture ${tempreture} --similarity_function ${similarity_function} --sample_loss_weight ${sample_loss_weight} --cluster_loss_weight ${cluster_loss_weight} --seed ${seed} --batch_size 64 --training_samples_per_dataset 8405 \
     --data_paths "./datasets/primevul/balance_8models/choice_cluster/train.json" \
     --test_data_paths "./datasets/primevul/balance_8models/choice/test.json" \
     --test_data_type "probability" \
