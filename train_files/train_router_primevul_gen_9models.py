@@ -228,18 +228,18 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Router training for PrimeVul (generate_until / Eq. 1)")
 
     # dataset and path
-    parser.add_argument('--data_paths', nargs='+', default=["../datasets/primevul/balance_9models/gen_cluster/train.json"])
-    parser.add_argument('--test_data_paths', nargs='+', default=["../datasets/primevul/balance_9models/gen/test.json"])
-    parser.add_argument('--test_data_type', nargs='+', default=["multi_attempt"])
-    parser.add_argument('--final_eval_data_paths', nargs='+', default=["../datasets/primevul/balance_9models/gen/test.json"])
-    parser.add_argument('--final_eval_data_type', nargs='+', default=["multi_attempt"])
+    parser.add_argument('--data_paths', nargs='+')
+    parser.add_argument('--test_data_paths', nargs='+')
+    parser.add_argument('--test_data_type', nargs='+')
+    parser.add_argument('--final_eval_data_paths', nargs='+')
+    parser.add_argument('--final_eval_data_type', nargs='+')
 
     # training paras
     parser.add_argument('--batch_size', type=int, default=64)
     parser.add_argument('--training_steps', type=int, default=1000)
     parser.add_argument('--eval_steps', type=int, default=50)
     parser.add_argument('--learning_rate', type=float, default=0.00005)
-    parser.add_argument('--save_path', type=str, default='./logs/router_primevul_gen_9models/')
+    parser.add_argument('--save_path', type=str)
     parser.add_argument('--top_k', type=int, default=4)
     parser.add_argument('--last_k', type=int, default=4)
     parser.add_argument('--tempreture', type=int, default=1)
