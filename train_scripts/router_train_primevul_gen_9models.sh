@@ -1,5 +1,5 @@
-top_k=4
-last_k=4
+top_k=3
+last_k=3
 training_steps=1000
 learning_rate="5e-5"
 tempreture=1
