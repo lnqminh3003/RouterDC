@@ -1,4 +1,4 @@
-task: primevul_gen
+task: primevul_gen3
 dataset_path: json
 dataset_name: null
 dataset_kwargs:
